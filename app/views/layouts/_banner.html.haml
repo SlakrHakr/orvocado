@@ -1,0 +1,11 @@
+%div#banner
+  %a{href: root_path}
+    = image_tag('orvacado_full.png', height: 40, style: 'padding: 5px;')
+
+  .align-right
+    #user-actions.dropdown
+      .glyphicon.glyphicon-menu-down
+      SlakrHakr
+      .dropdown-content
+        %a{:href => "#"} Profile
+        %a{:href => "#"} Log out

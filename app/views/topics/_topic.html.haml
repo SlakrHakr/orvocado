@@ -1,0 +1,15 @@
+-# topic
+
+- selected = ['L', 'R', 'N', 'N', 'N', 'N'].sample
+
+.topic{:class => ('selected' if selected != 'N')}
+  %a.topic-section.topic-side.topic-side-left{href: position_select_path(position_id: topic.position_one.id), 'data-method' => 'post', :class => "#{('selected' if selected == 'L')} #{('deselected' if selected == 'R')}"}
+    = topic.position_one.description
+
+  %a.topic-section.topic-description{href: topic_path(topic.id), :class => "#{('selected-left' if selected == 'L')} #{('selected-right' if selected == 'R')}"}
+    = topic.description
+
+  %a.topic-section.topic-side.topic-side-right{href: position_select_path(position_id: topic.position_two.id), 'data-method' => 'post', :class => "#{('selected' if selected == 'R')} #{('deselected' if selected == 'L')}"}
+    = topic.position_two.description
+
+  .clear

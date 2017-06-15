@@ -1,0 +1,78 @@
+// Place all the styles related to the topics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#topics{
+  position: absolute;
+  left: 50%;
+  margin-left: -434px;
+}
+
+#topics > .topic{
+  min-width: 868px;
+}
+
+#topics > .topic.selected{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#topics > .topic > .topic-section{
+  float:left;
+  padding: 10px;
+  height: 70px;
+  color: #666;
+  text-decoration: none;
+}
+
+#topics > .topic > .topic-side{
+  width: 150px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 50px;
+  background-color: #F8F8F8;
+  border: 1px solid #F8F8F8;
+}
+
+#topics > .topic > .topic-side.selected{
+  font-weight: bold;
+  color: #fff;
+}
+
+#topics > .topic > .topic-side-left{
+  color: #587058;
+}
+
+#topics > .topic > .topic-side-left.selected{
+  background-color: #587058;
+  border: 1px solid #587058;
+}
+
+#topics > .topic > .topic-side-right{
+  color: #a44a1a;
+}
+
+#topics > .topic > .topic-side-right.selected{
+  background-color: #E86825;
+  border: 1px solid #E86825;
+}
+
+#topics > .topic > .topic-side.deselected{
+  color: lightgray;
+  background-color: transparent; 
+  border: 1px solid transparent;
+}
+
+#topics > .topic > .topic-description{
+  width: 500px;
+  border-top: 1px solid lightgray;
+  background-color: #F5F5F5;
+}
+
+#topics > .topic > .topic-description.selected-left{
+  border: 1px solid #587058;
+}
+
+#topics > .topic > .topic-description.selected-right{
+  border: 1px solid #E86825;
+}
