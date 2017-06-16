@@ -1,0 +1,6 @@
+-# reasons
+
+%ul
+  - reasons.each do |reason|
+    %li
+      = render partial: 'topics/reasons/reason', locals: { reason: reason }
