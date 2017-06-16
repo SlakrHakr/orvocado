@@ -1,0 +1,37 @@
+.reasons{
+  float: left;
+  width: 50%;
+  min-height: 88vh;
+}
+
+.reasons.reasons-left-side{
+  border-right: 1px solid lightgray;
+}
+
+.reasons.reasons-right-side{
+  border-left: 1px solid lightgray; 
+}
+
+.reasons > ul {
+  list-style-type: none;
+  padding-left: 0px;
+  margin-left: 2.5%;
+}
+
+.reasons > ul > li {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  width: 95%;
+}
+
+.reasons.deselected{
+  opacity: 0.3;
+}
+
+.reasons.reasons-right-side.selected{
+  background: rgba(232, 104, 37, 0.1);
+}
+
+.reasons.reasons-left-side.selected{
+  background: rgba(88, 112, 88, 0.1);
+}

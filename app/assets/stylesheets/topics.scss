@@ -6,6 +6,7 @@
   position: absolute;
   left: 50%;
   margin-left: -434px;
+  margin-top: 10px;
 }
 
 #topics > .topic{
@@ -17,7 +18,7 @@
   margin-bottom: 5px;
 }
 
-#topics > .topic > .topic-section{
+.topic > .topic-section{
   float:left;
   padding: 10px;
   height: 70px;
@@ -27,6 +28,10 @@
 
 #topics > .topic > .topic-side{
   width: 150px;
+}
+
+.topic > .topic-side{
+  width: 15%;
   cursor: pointer;
   text-align: center;
   line-height: 50px;
@@ -34,30 +39,30 @@
   border: 1px solid #F8F8F8;
 }
 
-#topics > .topic > .topic-side.selected{
+.topic > .topic-side.selected{
   font-weight: bold;
   color: #fff;
 }
 
-#topics > .topic > .topic-side-left{
+.topic > .topic-side-left{
   color: #587058;
 }
 
-#topics > .topic > .topic-side-left.selected{
+.topic > .topic-side-left.selected{
   background-color: #587058;
   border: 1px solid #587058;
 }
 
-#topics > .topic > .topic-side-right{
+.topic > .topic-side-right{
   color: #a44a1a;
 }
 
-#topics > .topic > .topic-side-right.selected{
+.topic > .topic-side-right.selected{
   background-color: #E86825;
   border: 1px solid #E86825;
 }
 
-#topics > .topic > .topic-side.deselected{
+.topic > .topic-side.deselected{
   color: lightgray;
   background-color: transparent; 
   border: 1px solid transparent;
@@ -65,14 +70,27 @@
 
 #topics > .topic > .topic-description{
   width: 500px;
+}
+
+.topic > .topic-description{
+  width: 70%;
   border-top: 1px solid lightgray;
   background-color: #F5F5F5;
 }
 
-#topics > .topic > .topic-description.selected-left{
+.topic > .topic-description.selected-left{
   border: 1px solid #587058;
 }
 
-#topics > .topic > .topic-description.selected-right{
+.topic > .topic-description.selected-right{
   border: 1px solid #E86825;
+}
+
+.glyphicon#create-topic{
+  font-size: 35px;
+  position: fixed;
+  top: 95%;
+  right: 10px;
+  color: #587498;
+  text-decoration: none;
 }

@@ -1,9 +1,19 @@
 class PositionController < ApplicationController
   def select
-    redirect_to topics_path
+    position_id = params[:position_id].to_i
+    topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
+    if (topic.position_one.id == position_id) && (topic.position_two.selected?)
+      UserPosition.where(user_id: 1, position_id: topic.position_two.id).destroy_all
+    elsif (topic.position_two.id == position_id) && (topic.position_one.selected?)
+      UserPosition.where(user_id: 1, position_id: topic.position_one.id).destroy_all
+    end
+
+    UserPosition.create(user_id: 1, position_id: position_id)
+    redirect_to request.env['HTTP_REFERER']
   end
 
   def deselect
-    redirect_to topics_path
+    UserPosition.where(user_id: 1, position_id: params[:position_id].to_i).destroy_all
+    redirect_to request.env['HTTP_REFERER']
   end
 end

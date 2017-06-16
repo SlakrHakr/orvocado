@@ -8,4 +8,11 @@
 
 100.times { |i| Position.create(description: "Position #{i + 1}") }
 50.times { |i| Topic.create(description: "Description #{i + 1}", position_one: i + 1, position_two: 100 - i) }
+
 User.create(name: 'SlakrHakr', password: 'password', email: 'leedeboom@gmail.com')
+
+22.times { |i| Reason.create(position_id: 49, description: "Reason #{i + 1}") }
+3.times { |i| Reason.create(position_id: 52, description: "Different Reason #{i + 1}") }
+
+UserPosition.create(user_id: 1, position_id: 49)
+UserPosition.create(user_id: 1, position_id: 56)

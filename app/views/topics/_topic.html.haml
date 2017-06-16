@@ -1,15 +1,26 @@
 -# topic
 
-- selected = ['L', 'R', 'N', 'N', 'N', 'N'].sample
-
-.topic{:class => ('selected' if selected != 'N')}
-  %a.topic-section.topic-side.topic-side-left{href: position_select_path(position_id: topic.position_one.id), 'data-method' => 'post', :class => "#{('selected' if selected == 'L')} #{('deselected' if selected == 'R')}"}
+.topic{:class => ('selected' if (topic.position_one.selected? || topic.position_two.selected?))}
+  - path = position_select_path(position_id: topic.position_one.id)
+  - data_method = 'post'
+  - if topic.position_one.selected?
+    - path = position_deselect_path(position_id: topic.position_one.id)
+    - data_method = 'delete'
+  - classes = "#{('selected' if topic.position_one.selected?)} #{('deselected' if topic.position_two.selected?)}"
+  %a.topic-section.topic-side.topic-side-left{href: path, 'data-method' => data_method, :class => classes}
     = topic.position_one.description
 
-  %a.topic-section.topic-description{href: topic_path(topic.id), :class => "#{('selected-left' if selected == 'L')} #{('selected-right' if selected == 'R')}"}
+  - classes = "#{('selected-left' if topic.position_one.selected?)} #{('selected-right' if topic.position_two.selected?)}"
+  %a.topic-section.topic-description{href: topic_path(topic.id), :class => classes}
     = topic.description
 
-  %a.topic-section.topic-side.topic-side-right{href: position_select_path(position_id: topic.position_two.id), 'data-method' => 'post', :class => "#{('selected' if selected == 'R')} #{('deselected' if selected == 'L')}"}
+  - path = position_select_path(position_id: topic.position_two.id)
+  - data_method = 'post'
+  - if topic.position_two.selected?
+    - path = position_deselect_path(position_id: topic.position_two.id)
+    - data_method = 'delete'
+  - classes = "#{('selected' if topic.position_two.selected?)} #{('deselected' if topic.position_one.selected?)}"
+  %a.topic-section.topic-side.topic-side-right{href: path, 'data-method' => data_method, :class => classes}
     = topic.position_two.description
 
   .clear
