@@ -1,4 +1,5 @@
-= render partial: 'topic', locals: { topic: @topic }
+.topic-banner
+  = render partial: 'topic', locals: { topic: @topic }
 
 .reasons.reasons-left-side{ :class => "#{'selected' if @topic.position_one.selected?} #{'deselected' if @topic.position_two.selected?}" }
   = render partial: 'topics/reasons/reasons', locals: { reasons: @topic.position_one.reasons }

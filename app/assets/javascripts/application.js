@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require home
+//= require pagination
+//= require position
+//= require topics
+//= require user
 
 $( document ).ready(function() {
   $( ".dropdown" ).click(function() {
