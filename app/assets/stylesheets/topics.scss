@@ -9,11 +9,11 @@
   margin-top: 10px;
 }
 
-#topics > .topic{
+#topics > .topic-container > .topic{
   min-width: 868px;
 }
 
-#topics > .topic.selected{
+#topics > .topic-container > .topic.selected{
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -26,7 +26,7 @@
   text-decoration: none;
 }
 
-#topics > .topic > .topic-side{
+#topics > .topic-container > .topic > .topic-side{
   width: 150px;
 }
 
@@ -68,7 +68,7 @@
   border: 1px solid transparent;
 }
 
-#topics > .topic > .topic-description{
+#topics > .topic-container > .topic > .topic-description{
   width: 500px;
 }
 

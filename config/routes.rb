@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     post :select
     delete :deselect
   end
+
+  # get '/topics/:topic_id/position/:position_id/almost/done', to: 'topics#almost_done'
 end

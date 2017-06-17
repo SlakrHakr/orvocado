@@ -9,11 +9,15 @@ class PositionController < ApplicationController
     end
 
     UserPosition.create(user_id: 1, position_id: position_id)
-    redirect_to request.env['HTTP_REFERER']
+    
+    render json: topic
   end
 
   def deselect
-    UserPosition.where(user_id: 1, position_id: params[:position_id].to_i).destroy_all
-    redirect_to request.env['HTTP_REFERER']
+    position_id = params[:position_id].to_i
+    UserPosition.where(user_id: 1, position_id: position_id).destroy_all
+    topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
+
+    render json: topic
   end
 end

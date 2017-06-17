@@ -7,8 +7,18 @@ class TopicsController < ApplicationController
 
   def show
   	@topic = Topic.find(params[:id].to_i)
+
+    if request.xhr?
+      render partial: '/topics/topic_content', locals: { topic: @topic }
+    end
   end
 
   def new
   end
+
+  # def almost_done
+  #   topic_id = params[:topic_id].to_i
+  #   position_id = params[:position_id].to_i
+  #   render partial: 'topic', locals: { topic: Topic.find(topic_id), position_for_reason: Position.find(position_id) }
+  # end
 end

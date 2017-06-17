@@ -1,26 +1,4 @@
 -# topic
 
-.topic{:class => ('selected' if (topic.position_one.selected? || topic.position_two.selected?))}
-  - path = position_select_path(position_id: topic.position_one.id)
-  - data_method = 'post'
-  - if topic.position_one.selected?
-    - path = position_deselect_path(position_id: topic.position_one.id)
-    - data_method = 'delete'
-  - classes = "#{('selected' if topic.position_one.selected?)} #{('deselected' if topic.position_two.selected?)}"
-  %a.topic-section.topic-side.topic-side-left{href: path, 'data-method' => data_method, :class => classes}
-    = topic.position_one.description
-
-  - classes = "#{('selected-left' if topic.position_one.selected?)} #{('selected-right' if topic.position_two.selected?)}"
-  %a.topic-section.topic-description{href: topic_path(topic.id), :class => classes}
-    = topic.description
-
-  - path = position_select_path(position_id: topic.position_two.id)
-  - data_method = 'post'
-  - if topic.position_two.selected?
-    - path = position_deselect_path(position_id: topic.position_two.id)
-    - data_method = 'delete'
-  - classes = "#{('selected' if topic.position_two.selected?)} #{('deselected' if topic.position_one.selected?)}"
-  %a.topic-section.topic-side.topic-side-right{href: path, 'data-method' => data_method, :class => classes}
-    = topic.position_two.description
-
-  .clear
+.topic-container
+  = render partial: '/topics/topic_content', locals: { topic: topic }

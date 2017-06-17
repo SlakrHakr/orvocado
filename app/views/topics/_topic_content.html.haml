@@ -1,0 +1,16 @@
+-# topic
+
+.topic{:class => ('selected' if (topic.position_one.selected? || topic.position_two.selected?))}
+  - classes = "#{('selected' if topic.position_one.selected?)} #{('deselected' if topic.position_two.selected?)}"
+  %a.topic-section.topic-side.topic-side-left{'data-position-id' => topic.position_one.id, :class => classes}
+    = topic.position_one.description
+
+  - classes = "#{('selected-left' if topic.position_one.selected?)} #{('selected-right' if topic.position_two.selected?)}"
+  %a.topic-section.topic-description{href: topic_path(topic.id), :class => classes}
+    = topic.description
+
+  - classes = "#{('selected' if topic.position_two.selected?)} #{('deselected' if topic.position_one.selected?)}"
+  .topic-section.topic-side.topic-side-right{'data-position-id' => topic.position_two.id, :class => classes}
+    = topic.position_two.description
+
+  .clear
