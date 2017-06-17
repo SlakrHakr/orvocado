@@ -53,6 +53,11 @@
   border: 1px solid #587058;
 }
 
+.topic > .topic-side-left.semi-selected{
+  background-color: rgba(88, 112, 88, 0.1);
+  border: 1px solid rgba(88, 112, 88, 0);
+}
+
 .topic > .topic-side-right{
   color: #a44a1a;
 }
@@ -60,6 +65,11 @@
 .topic > .topic-side-right.selected{
   background-color: #E86825;
   border: 1px solid #E86825;
+}
+
+.topic > .topic-side-right.semi-selected{
+  background-color: rgba(232, 104, 37, 0.1);
+  border: 1px solid rgba(232, 104, 37, 0);
 }
 
 .topic > .topic-side.deselected{
@@ -82,8 +92,16 @@
   border: 1px solid #587058;
 }
 
+.topic > .topic-description.semi-selected-left{
+  border: 1px solid rgba(88, 112, 88, 0);
+}
+
 .topic > .topic-description.selected-right{
   border: 1px solid #E86825;
+}
+
+.topic > .topic-description.semi-selected-right{
+  border: 1px solid rgba(232, 104, 37, 0);
 }
 
 .glyphicon#create-topic{

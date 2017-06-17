@@ -15,10 +15,4 @@ class TopicsController < ApplicationController
 
   def new
   end
-
-  # def almost_done
-  #   topic_id = params[:topic_id].to_i
-  #   position_id = params[:position_id].to_i
-  #   render partial: 'topic', locals: { topic: Topic.find(topic_id), position_for_reason: Position.find(position_id) }
-  # end
 end

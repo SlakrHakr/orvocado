@@ -20,4 +20,12 @@ class PositionController < ApplicationController
 
     render json: topic
   end
+
+  def almost
+    position_id = params[:position_id].to_i
+    position = Position.find(position_id)    
+    topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
+
+    render partial: '/topics/topic_almost_position', locals: { topic: topic, position: position }
+  end
 end

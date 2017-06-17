@@ -1,0 +1,23 @@
+-# topic
+-# position = one user has selected but not yet added a reason
+
+.topic{:class => ('semi-selected' if (topic.position_one.id == position.id || topic.position_two.id == position.id))}
+  - classes = "#{('semi-selected' if topic.position_one.id == position.id)} #{('deselected' if topic.position_two.id == position.id)}"
+  %a.topic-section.topic-side.topic-side-left{'data-position-id' => topic.position_one.id, :class => classes}
+    = topic.position_one.description
+
+  - classes = "#{('semi-selected-left' if topic.position_one.id == position.id)} #{('semi-selected-right' if topic.position_two.id == position.id)}"
+  %a.topic-section.topic-description{href: topic_path(topic.id), :class => classes}
+    = topic.description
+
+  - classes = "#{('semi-selected' if topic.position_two.id == position.id)} #{('deselected' if topic.position_one.id == position.id)}"
+  .topic-section.topic-side.topic-side-right{'data-position-id' => topic.position_two.id, :class => classes}
+    = topic.position_two.description
+
+  .clear
+
+  - classes = "#{('left-side' if topic.position_one.id == position.id)} #{'right-side' if topic.position_two.id == position.id}"
+  .reason-area{ :class => classes }
+    %textarea{placeholder: 'Why?'}
+
+    %input.submit{ type: 'submit', value: 'Submit', :class => classes }

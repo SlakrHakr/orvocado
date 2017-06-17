@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  # get '/position/:position_id/reasons', to: 'reasons#create'
+
   root 'topics#index'
 
   resources :topics, only: [:index, :create, :new, :show]
   resources :user, only: [:create, :new]
   
   resources :position, only: [] do
+    get :almost
     post :select
     delete :deselect
+    resources :reasons, only: [:create, :destroy]
   end
-
-  # get '/topics/:topic_id/position/:position_id/almost/done', to: 'topics#almost_done'
 end
