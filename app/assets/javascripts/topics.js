@@ -1,27 +1,42 @@
-$(window).scroll(function(e){ 
+$(window).scroll(function(e){
+  /**
+   * Fixes topic banner to top of screen if scrolling far down page.
+   * @param  {[type]} $ [description]
+   * @return {[type]}   [description]
+   */
   if(($(document).height() - $('body').height()) > 100){
-    var $el = $('.topic-banner'); 
+    var $el = $('.topic-banner');
     var isPositionFixed = ($el.css('position') == 'fixed');
-    if ($(this).scrollTop() > 44 && !isPositionFixed){ 
-      $('.topic-banner').css({'position': 'fixed', 'top': '0px'}); 
+    if ($(this).scrollTop() > 44 && !isPositionFixed){
+      $('.topic-banner').css({'position': 'fixed', 'top': '0px'});
     }
     if ($(this).scrollTop() < 44 && isPositionFixed)
     {
-      $('.topic-banner').css({'position': 'static', 'top': '0px'}); 
-    } 
+      $('.topic-banner').css({'position': 'static', 'top': '0px'});
+    }
   }
 });
 
 $( document ).ready(function() {
-
+    /**
+     * Handles clicking event on a topic position.
+     * @return {[type]} [description]
+     */
     $('body').on('click', '.topic > .topic-side', function(){
-        if ($(this).hasClass('selected')){
+        if ($(this).hasClass('semi-selected')){
+          var topicId = $(item).data('topic-id');
+          loadTopic(topicId);
+        }else if ($(this).hasClass('selected')){
           selectPosition($(this));
         }else{
           semiSelectPosition($(this));
         }
     });
 
+    /**
+     * Handles actual submission event of topic position and reason.
+     * @return {[type]} [description]
+     */
     $('body').on('click', '.submit', function(){
         var position = $(this).closest('.topic').find('.topic-side.semi-selected')
         var reason = $(this).closest('.reason-area').find('textarea').val();
@@ -30,12 +45,22 @@ $( document ).ready(function() {
         selectPosition($(position));
     });
 
+    /**
+     * Displays topic mid-selection with input for reason.
+     * @param  {[type]} item [description]
+     * @return {[type]}      [description]
+     */
     function semiSelectPosition(item){
       var positionId = $(item).data('position-id');
       var container = $(item).closest('.topic-container');
       $(container).load('/position/' + positionId + '/almost');
     }
 
+    /**
+     * Posts reason to storage.
+     * @param {[type]} position [description]
+     * @param {[type]} reason   [description]
+     */
     function addReason(position, reason){
       $.ajax({
         contentType: 'application/json',
@@ -48,6 +73,12 @@ $( document ).ready(function() {
       });
     }
 
+    /**
+     * Handles posting position selection to storage and rendering of topic
+     * with new position displayed.
+     * @param  {[type]} item [description]
+     * @return {[type]}      [description]
+     */
     function selectPosition(item){
       var positionId = $(item).data('position-id');
 
@@ -66,23 +97,32 @@ $( document ).ready(function() {
       var container = $(item).closest('.topic-container');
       $.ajax({
         type: type,
-        url: url,   
+        url: url,
         success: function (result) {
-          $(container).load('/topics/' + result['id'], function() {
-              if ($('.reasons').length){
-                  $('.reasons').removeClass('selected');
-                  $('.reasons').removeClass('deselected');
-              }
-
-              if (left){
-                  $('.reasons-left-side').addClass('selected');
-                  $('.reasons-right-side').addClass('deselected');
-              }else if (right){
-                  $('.reasons-right-side').addClass('selected');
-                  $('.reasons-left-side').addClass('deselected');
-              }
-          });
+          loadTopic(result['id']);
         }
+      });
+    }
+
+    /**
+     * Renders topic.
+     * @param  {[type]} topicId [description]
+     * @return {[type]}         [description]
+     */
+    function loadTopic(topicId){
+      $(container).load('/topics/' + topicId, function() {
+          if ($('.reasons').length){
+              $('.reasons').removeClass('selected');
+              $('.reasons').removeClass('deselected');
+          }
+
+          if (left){
+              $('.reasons-left-side').addClass('selected');
+              $('.reasons-right-side').addClass('deselected');
+          }else if (right){
+              $('.reasons-right-side').addClass('selected');
+              $('.reasons-left-side').addClass('deselected');
+          }
       });
     }
 
