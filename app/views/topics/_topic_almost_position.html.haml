@@ -9,6 +9,8 @@
   - classes = "#{('semi-selected-left' if topic.position_one.id == position.id)} #{('semi-selected-right' if topic.position_two.id == position.id)}"
   %a.topic-section.topic-description{href: topic_path(topic.id), :class => classes}
     = topic.description
+    - topic.tags.each do |tag|
+      .topic-tag= tag.name
 
   - classes = "#{('semi-selected' if topic.position_two.id == position.id)} #{('deselected' if topic.position_one.id == position.id)}"
   .topic-section.topic-side.topic-side-right{'data-topic-id' => topic.id, 'data-position-id' => topic.position_two.id, :class => classes}

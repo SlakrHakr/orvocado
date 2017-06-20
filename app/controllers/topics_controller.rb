@@ -14,5 +14,6 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @tags = Tag.all
   end
 end

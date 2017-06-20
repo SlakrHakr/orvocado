@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require select2.min
  */
 
 @import "bootstrap-sprockets";
@@ -20,4 +21,13 @@
 body {
   margin: 0px;
   background: rgba(88, 116, 152, .1);
+}
+
+.disabled{
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.select2.select2-container{
+  width: 100% !important;
 }

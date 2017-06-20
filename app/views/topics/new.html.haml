@@ -1,25 +1,23 @@
-/ .topic
-/   %a.topic-section.topic-description
-/     %input
+.topic.topic-new
+ %a.topic-section.topic-description
+  %textarea{ placeholder: 'Topic to discuss' }
+  %select.select2{ multiple: "multiple" }
+   - @tags.each do |tag|
+    %option{:value => tag.id}= tag.name
 
-/   .clear
+ .clear
 
-/   %a.topic-section.topic-side.topic-side-left
-/     %input
+ %a.topic-section.topic-side.topic-side-left.semi-selected
+  %input{ placeholder: 'First position' }
 
-/   .topic-section.topic-side.topic-side-right
-/     %input
+ .topic-section.topic-side.topic-side-right.semi-selected
+  %input{ placeholder: 'Second position' }
 
-/   .clear
+ .clear
 
+ .topic-container
+  .topic
+   .reason-area.right-side
+    %textarea{ placeholder: 'Why?' }
 
-
-.topic{:style => "\n    margin-left: 20%;\n    margin-top: 30px;\n"}
-  %a.topic-section.topic-description
-    %textarea{:style => "width: 100%;border-color: transparent;height: 100%;"}
-  .clear
-  %a.topic-section.topic-side.topic-side-left{:style => "\n    background-color: rgba(88, 112, 88, 0.1);\n"}
-    %input{:style => "\n    width: 100%;\n    height: 100%;\n    border-color: transparent;\n    text-align: center;\n"}/
-  .topic-section.topic-side.topic-side-right{:style => "\n    background-color: rgba(232, 104, 37, 0.1);\n"}
-    %input{:style => "\n    width: 100%;\n    height: 100%;\n    border-color: transparent;\n    text-align: center;\n"}/
-  .clear
+ %input.create.disabled{ type: 'submit', value: 'Submit' }

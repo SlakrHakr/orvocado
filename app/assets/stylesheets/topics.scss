@@ -74,7 +74,7 @@
 
 .topic > .topic-side.deselected{
   color: lightgray;
-  background-color: transparent; 
+  background-color: transparent;
   border: 1px solid transparent;
 }
 
@@ -86,6 +86,7 @@
   width: 70%;
   border-top: 1px solid lightgray;
   background-color: #F5F5F5;
+  position: relative;
 }
 
 .topic > .topic-description.selected-left{
@@ -116,4 +117,72 @@
 .topic-banner{
   z-index: 999;
   width: 100%;
+}
+
+.topic-tag{
+  background-color: #666;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 3px;
+  font-size: 9px;
+  right: 3px;
+}
+
+.topic-new{
+  margin-left: 20%;
+  margin-top: 30px;
+}
+
+.topic-new > .topic-description > textarea{
+  width: 100%;
+  border-color: transparent;
+  height: 85px;
+  margin-bottom: 5px;
+}
+
+.topic-new > .topic-side-left{
+  background-color: rgba(88, 112, 88, 0.1);
+}
+
+.topic-new > .topic-side-right{
+  background-color: rgba(232, 104, 37, 0.1);
+}
+
+.topic-new > .topic-side{
+  width: 35%;
+}
+
+.topic-new > .topic-side > input{
+  width: 100%;
+  height: 100%;
+  border-color: transparent;
+  text-align: center;
+}
+
+input.create{
+  background-color: #587498;
+  border: 0px;
+  border-radius: 3px;
+  margin-top: 10px;
+  width: 70%;
+  height: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.topic-new > .topic-description > select{
+  width: 100%;
+}
+
+.topic-new > .topic-description{
+  height: 140px;
+}
+
+li.select2-selection__choice{
+  background-color: #666 !important;
+  color: white !important;
+  border: 0px !important;
+  float: right !important;
 }

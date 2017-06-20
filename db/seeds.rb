@@ -16,3 +16,5 @@ User.create(name: 'SlakrHakr', password: 'password', email: 'leedeboom@gmail.com
 
 UserPosition.create(user_id: 1, position_id: 49)
 UserPosition.create(user_id: 1, position_id: 56)
+
+Tag.create(topic_id: 50, name: 'tag-example')

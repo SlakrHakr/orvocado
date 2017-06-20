@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require select2.min
 //= require home
 //= require pagination
 //= require position
@@ -23,5 +24,10 @@ $( document ).ready(function() {
     $(this).find(".glyphicon").toggleClass('glyphicon-menu-down');
     $(this).find(".glyphicon").toggleClass('glyphicon-menu-up');
     $(this).find(".dropdown-content").toggleClass('show');
+  });
+
+  $('.select2').select2({
+    tags: true,
+    placeholder: "Tag this topic"
   });
 });
