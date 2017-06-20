@@ -24,8 +24,8 @@ $( document ).ready(function() {
      */
     $('body').on('click', '.topic > .topic-side', function(){
         if ($(this).hasClass('semi-selected')){
-          var topicId = $(item).data('topic-id');
-          loadTopic(topicId);
+          var topicId = $(this).data('topic-id');
+          loadTopic(this, topicId);
         }else if ($(this).hasClass('selected')){
           selectPosition($(this));
         }else{
@@ -94,12 +94,11 @@ $( document ).ready(function() {
         right = false;
       }
 
-      var container = $(item).closest('.topic-container');
       $.ajax({
         type: type,
         url: url,
         success: function (result) {
-          loadTopic(result['id']);
+          loadTopic(item, result['id']);
         }
       });
     }
@@ -109,20 +108,21 @@ $( document ).ready(function() {
      * @param  {[type]} topicId [description]
      * @return {[type]}         [description]
      */
-    function loadTopic(topicId){
+    function loadTopic(item, topicId){
+      var container = $(item).closest('.topic-container');
       $(container).load('/topics/' + topicId, function() {
-          if ($('.reasons').length){
-              $('.reasons').removeClass('selected');
-              $('.reasons').removeClass('deselected');
-          }
-
-          if (left){
-              $('.reasons-left-side').addClass('selected');
-              $('.reasons-right-side').addClass('deselected');
-          }else if (right){
-              $('.reasons-right-side').addClass('selected');
-              $('.reasons-left-side').addClass('deselected');
-          }
+          // if ($('.reasons').length){
+          //     $('.reasons').removeClass('selected');
+          //     $('.reasons').removeClass('deselected');
+          // }
+          //
+          // if (left){
+          //     $('.reasons-left-side').addClass('selected');
+          //     $('.reasons-right-side').addClass('deselected');
+          // }else if (right){
+          //     $('.reasons-right-side').addClass('selected');
+          //     $('.reasons-left-side').addClass('deselected');
+          // }
       });
     }
 
