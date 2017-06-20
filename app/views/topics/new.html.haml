@@ -1,1 +1,25 @@
-way to create new topic here
+/ .topic
+/   %a.topic-section.topic-description
+/     %input
+
+/   .clear
+
+/   %a.topic-section.topic-side.topic-side-left
+/     %input
+
+/   .topic-section.topic-side.topic-side-right
+/     %input
+
+/   .clear
+
+
+
+.topic{:style => "\n    margin-left: 20%;\n    margin-top: 30px;\n"}
+  %a.topic-section.topic-description
+    %textarea{:style => "width: 100%;border-color: transparent;height: 100%;"}
+  .clear
+  %a.topic-section.topic-side.topic-side-left{:style => "\n    background-color: rgba(88, 112, 88, 0.1);\n"}
+    %input{:style => "\n    width: 100%;\n    height: 100%;\n    border-color: transparent;\n    text-align: center;\n"}/
+  .topic-section.topic-side.topic-side-right{:style => "\n    background-color: rgba(232, 104, 37, 0.1);\n"}
+    %input{:style => "\n    width: 100%;\n    height: 100%;\n    border-color: transparent;\n    text-align: center;\n"}/
+  .clear

@@ -34,6 +34,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'bcrypt'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

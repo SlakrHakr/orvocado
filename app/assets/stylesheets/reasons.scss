@@ -1,3 +1,7 @@
+.reasons-container{
+  /*height: 105%;*/
+}
+
 .reasons{
   float: left;
   width: 50%;
@@ -6,10 +10,12 @@
 
 .reasons.reasons-left-side{
   border-right: 1px solid lightgray;
+  /*height: 100%;*/
 }
 
 .reasons.reasons-right-side{
-  border-left: 1px solid lightgray; 
+  border-left: 1px solid lightgray;
+  /*height: 100%;*/
 }
 
 .reasons > ul {

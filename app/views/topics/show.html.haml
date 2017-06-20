@@ -1,8 +1,11 @@
 .topic-banner
   = render partial: 'topic', locals: { topic: @topic }
 
-.reasons.reasons-left-side{ :class => "#{'selected' if @topic.position_one.selected?} #{'deselected' if @topic.position_two.selected?}" }
-  = render partial: 'topics/reasons/reasons', locals: { reasons: @topic.position_one.reasons }
+.reasons-container
+  .reasons.reasons-left-side{ :class => "#{'selected' if @topic.position_one.selected?} #{'deselected' if @topic.position_two.selected?}" }
+    = render partial: 'topics/reasons/reasons', locals: { reasons: @topic.position_one.reasons }
 
-.reasons.reasons-right-side{ :class => "#{'selected' if @topic.position_two.selected?} #{'deselected' if @topic.position_one.selected?}" }
-  = render partial: 'topics/reasons/reasons', locals: { reasons: @topic.position_two.reasons }
+  .reasons.reasons-right-side{ :class => "#{'selected' if @topic.position_two.selected?} #{'deselected' if @topic.position_one.selected?}" }
+    = render partial: 'topics/reasons/reasons', locals: { reasons: @topic.position_two.reasons }
+
+  .clear
