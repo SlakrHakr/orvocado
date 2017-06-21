@@ -15,6 +15,6 @@ class TopicsController < ApplicationController
 
   def new
     authenticate_user!
-    @tags = Tag.all
+    @tags = Tag.all.map { |tag| tag.name  }.uniq
   end
 end
