@@ -9,3 +9,23 @@
 .clear{
   clear: both;
 }
+
+.center{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+.outline{
+  border: 2px solid lightgray;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.orvacado-placement{
+  margin-left: -10px;
+  padding-top: 25px;
+  padding-right: 10px;
+}

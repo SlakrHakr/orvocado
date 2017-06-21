@@ -6,13 +6,7 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-
     - unless controller_path.include? 'devise'
       = render partial: '/layouts/banner'
-
-    - if notice.present?
-      %p.notice= notice
-    - if alert.present?
-      %p.alert= alert
 
     = yield
