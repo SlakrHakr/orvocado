@@ -2,9 +2,12 @@
   %a{href: root_path}
     = image_tag('orvacado_full.png', height: 40, style: 'padding: 5px;')
 
-  .align-right
-    #user-actions.dropdown
-      .glyphicon.glyphicon-menu-down
-      SlakrHakr
-      .dropdown-content
-        %a{:href => "#"} Log out
+  .align-right.basic-link
+    - if user_signed_in?
+      #user-actions.dropdown
+        .glyphicon.glyphicon-menu-down
+        = current_user.email
+        .dropdown-content
+          = link_to('Logout', destroy_user_session_path, method: :delete)
+    - else
+      = link_to('Login', new_user_session_path)

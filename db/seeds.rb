@@ -6,15 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times { |i| Position.create(description: "Position #{i + 1}") }
-50.times { |i| Topic.create(description: "Description #{i + 1}", position_one: i + 1, position_two: 100 - i) }
+(1..30).each do |index|
+  topic = [
+    { description: 'Which is the superior fruit?', position_one: 'Avacado', position_two: 'Orange' },
+    { description: 'Should the death penalty be allowed?', position_one: 'Yes', position_two: 'No' },
+    { description: 'Drugs should be legalized in the United States', position_one: 'Agree', position_two: 'Disagree' }
+  ].sample
 
-User.create(name: 'SlakrHakr', password: 'password', email: 'leedeboom@gmail.com')
+  result_position_one = Position.create(description: topic[:position_one])
+  result_position_two = Position.create(description: topic[:position_two])
+  result_topic = Topic.create(description: topic[:description], position_one: result_position_one.id, position_two: result_position_two.id)
 
-22.times { |i| Reason.create(position_id: 49, description: "Reason #{i + 1}") }
-3.times { |i| Reason.create(position_id: 52, description: "Different Reason #{i + 1}") }
+  if [true, false].sample
+    Tag.create(topic_id: result_topic.id, name: 'tag-example')
 
-UserPosition.create(user_id: 1, position_id: 49)
-UserPosition.create(user_id: 1, position_id: 56)
-
-Tag.create(topic_id: 50, name: 'tag-example')
+    if [true, false, false, false].sample
+      Tag.create(topic_id: result_topic.id, name: 'another-tag')
+    end
+  end
+end

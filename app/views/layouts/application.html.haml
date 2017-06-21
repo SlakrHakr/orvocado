@@ -7,4 +7,10 @@
     = javascript_include_tag 'application'
   %body
     = render partial: '/layouts/banner'
+
+    - if notice.present?
+      %p.notice= notice
+    - if alert.present?
+      %p.alert= alert
+
     = yield

@@ -14,6 +14,7 @@ class TopicsController < ApplicationController
   end
 
   def new
+    authenticate_user!
     @tags = Tag.all
   end
 end

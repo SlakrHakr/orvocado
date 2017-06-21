@@ -30,4 +30,8 @@ $( document ).ready(function() {
     tags: true,
     placeholder: "Tag this topic"
   });
+
+  if ($('.notice').length){
+    $('.notice').delay(5000).fadeOut();
+  }
 });
