@@ -136,8 +136,10 @@ $( document ).ready(function() {
 
       if (enable) {
         $('.create').removeClass('disabled');
+        $('.create').prop('disabled', false);
       }else{
         $('.create').addClass('disabled');
+        $('.create').prop('disabled', true);
       }
     });
 
@@ -150,11 +152,13 @@ $( document ).ready(function() {
           $(this).closest('.topic-side').addClass('topic-side-left');
           $(this).closest('.topic-new').find('.reason-area').removeClass('right-side');
           $(this).closest('.topic-new').find('.reason-area').addClass('left-side');
+          $('.left-position-hidden').prop('checked', true);
         }else if ($(this).hasClass('right-side')){
           $(this).closest('.topic-new').find('.topic-side-left').removeClass('topic-side-left');
           $(this).closest('.topic-side').addClass('topic-side-right');
           $(this).closest('.topic-new').find('.reason-area').removeClass('left-side');
           $(this).closest('.topic-new').find('.reason-area').addClass('right-side');
+          $('.right-position-hidden').prop('checked', true);
         }
 
         $(this).closest('.topic-new').find('.reason-area').find('textarea').val('');

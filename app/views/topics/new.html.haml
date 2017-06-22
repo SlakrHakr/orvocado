@@ -1,27 +1,34 @@
-.topic.topic-new
- %a.topic-section.topic-description
-  %textarea.form-field{ placeholder: 'Topic to discuss' }
-  %select.select2{ multiple: "multiple" }
-   - @tags.each do |tag|
-    %option= tag
+%form{ action: topics_path, method: 'POST' }
+ .topic.topic-new
+  %a.topic-section.topic-description
+   %textarea.form-field{ placeholder: 'Topic to discuss', name: 'topic' }
+   %select.select2{ multiple: "multiple", name: 'tags[]' }
+    - @tags.each do |tag|
+     %option= tag
 
- .clear
+  .clear
 
- %a.topic-section.topic-side.topic-side-left.semi-selected
-  %input.form-field{ placeholder: 'First position' }
-  %div.select-position.left-side
-   .glyphicon.glyphicon-ok
+  %a.topic-section.topic-side.topic-side-left.semi-selected
+   %input.form-field{ placeholder: 'First position', name: 'first_position' }
+   %div.select-position.left-side
+    .glyphicon.glyphicon-ok
 
- .topic-section.topic-side.topic-side-right.semi-selected
-  %input.form-field{ placeholder: 'Second position' }
-  %div.select-position.right-side
-   .glyphicon.glyphicon-ok
+  .topic-section.topic-side.topic-side-right.semi-selected
+   %input.form-field{ placeholder: 'Second position', name: 'second_position'  }
+   %div.select-position.right-side
+    .glyphicon.glyphicon-ok
 
- .clear
+  .clear
 
- .topic-container
-  .topic
-   .reason-area
-    %textarea.form-field{ placeholder: 'Why?' }
+  .hidden
+   %input.left-position-hidden{ type: 'radio', name: 'selected_position', value: 'left' } Left
+   %input.right-position-hidden{ type: 'radio', name: 'selected_position', value: 'right' } Right
 
- %input.create.disabled{ type: 'submit', value: 'Submit' }
+  = hidden_field_tag :authenticity_token, form_authenticity_token
+
+  .topic-container
+   .topic
+    .reason-area
+     %textarea.form-field{ placeholder: 'Why?', name: 'reason' }
+
+  %input.create.disabled{ type: 'submit', disabled: true, value: 'Submit' }

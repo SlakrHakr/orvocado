@@ -33,7 +33,23 @@ body {
   width: 100% !important;
 }
 
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: solid #666 1px !important;
+}
+
 .notice{
+  background-color: #587498;
+  padding: 3px;
+  text-align: center;
+  color: #fff;
+  width: 50%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  position: fixed;
+  margin-left: 25%;
+}
+
+.alert{
   background-color: #587498;
   padding: 3px;
   text-align: center;

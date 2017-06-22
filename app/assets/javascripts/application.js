@@ -34,10 +34,15 @@ $( document ).ready(function() {
 
   $('.select2').select2({
     tags: true,
-    placeholder: "Tag this topic"
+    placeholder: "Tag this topic",
+    dir: "rtl"
   });
 
   if ($('.notice').length){
     $('.notice').delay(5000).slideUp();
+  }
+
+  if ($('.alert').length){
+    $('.alert').delay(5000).slideUp();
   }
 });
