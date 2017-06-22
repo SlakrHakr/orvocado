@@ -20,6 +20,12 @@
 //= require user
 
 $( document ).ready(function() {
+  $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+    if (jqxhr.status == 401){
+      window.location.replace("/users/sign_in");
+    }
+  });
+
   $( ".dropdown" ).click(function() {
     $(this).find(".glyphicon").toggleClass('glyphicon-menu-down');
     $(this).find(".glyphicon").toggleClass('glyphicon-menu-up');
@@ -32,6 +38,6 @@ $( document ).ready(function() {
   });
 
   if ($('.notice').length){
-    $('.notice').delay(5000).fadeOut();
+    $('.notice').delay(5000).slideUp();
   }
 });

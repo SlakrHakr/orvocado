@@ -38,11 +38,11 @@ body {
   padding: 3px;
   text-align: center;
   color: #fff;
-  width: 300px;
-  margin-top: 7px;
-  border-radius: 4px;
-  float: right;
-  margin-right: 5px;
+  width: 50%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  position: fixed;
+  margin-left: 25%;
 }
 
 .basic-link > a{
