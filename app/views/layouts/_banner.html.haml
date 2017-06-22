@@ -6,7 +6,7 @@
     - if user_signed_in?
       #user-actions.dropdown
         .glyphicon.glyphicon-menu-down
-        = current_user.email
+        = current_user.username
         .dropdown-content
           = link_to('Logout', destroy_user_session_path, method: :delete)
     - else
