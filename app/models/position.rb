@@ -6,7 +6,11 @@ class Position < ApplicationRecord
     if self.class.current_user.nil?
       false
     else
-      self.user_positions.any? { |user_position| user_position.user.id == self.class.current_user.id }
+      begin
+        self.user_positions.any? { |user_position| user_position.user.id == self.class.current_user.id }
+      rescue
+        false
+      end
     end
   end
 end
