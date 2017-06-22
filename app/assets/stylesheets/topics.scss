@@ -191,3 +191,48 @@ li.select2-selection__choice{
   border: 0px !important;
   float: right !important;
 }
+
+.select-position{
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  color: lightgray;
+  border-radius: 3px;
+  position: relative;
+  bottom: 32px;
+  right: 2px;
+  float: right;
+  cursor: pointer;
+}
+
+.select-position.left-side.selected {
+  background-color: #587058;
+  color: #fff;
+}
+
+.select-position.left-side:hover {
+  background-color: #587058;
+  color: #fff;
+}
+
+.select-position.left-side{
+  background-color: rgba(88, 112, 88, 0.1);
+}
+
+.select-position.right-side.selected {
+  background-color: #E86825;
+  color:#fff;
+}
+
+.select-position.right-side:hover {
+  background-color: #E86825;
+  color:#fff;
+}
+
+.select-position.right-side{
+  background-color: rgba(232, 104, 37, 0.1);
+}
+
+.topic-new > .topic-side{
+  cursor: default;
+}

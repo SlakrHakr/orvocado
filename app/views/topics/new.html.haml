@@ -1,6 +1,6 @@
 .topic.topic-new
  %a.topic-section.topic-description
-  %textarea{ placeholder: 'Topic to discuss' }
+  %textarea.form-field{ placeholder: 'Topic to discuss' }
   %select.select2{ multiple: "multiple" }
    - @tags.each do |tag|
     %option= tag
@@ -8,16 +8,20 @@
  .clear
 
  %a.topic-section.topic-side.topic-side-left.semi-selected
-  %input{ placeholder: 'First position' }
+  %input.form-field{ placeholder: 'First position' }
+  %div.select-position.left-side
+   .glyphicon.glyphicon-ok
 
  .topic-section.topic-side.topic-side-right.semi-selected
-  %input{ placeholder: 'Second position' }
+  %input.form-field{ placeholder: 'Second position' }
+  %div.select-position.right-side
+   .glyphicon.glyphicon-ok
 
  .clear
 
  .topic-container
   .topic
-   .reason-area.right-side
-    %textarea{ placeholder: 'Why?' }
+   .reason-area
+    %textarea.form-field{ placeholder: 'Why?' }
 
  %input.create.disabled{ type: 'submit', value: 'Submit' }
