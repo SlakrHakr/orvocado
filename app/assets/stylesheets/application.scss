@@ -64,3 +64,20 @@ body {
 .basic-link > a{
   color: #0f250f;
 }
+
+#infinite-scrolling{
+  float: right;
+}
+
+.pagination > li > a, .pagination > li > span {
+    color: #587498;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    background-color: #587498;
+    border-color: #587498;
+}
+
+.pagination {
+    margin: 5px 0 10px;
+}

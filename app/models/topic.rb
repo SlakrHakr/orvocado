@@ -1,5 +1,5 @@
 class Topic < ApplicationRecord
-  self.per_page = 10
+  self.per_page = 40
   has_many :tags
 
   def position_one

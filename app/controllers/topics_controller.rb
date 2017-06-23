@@ -1,8 +1,11 @@
 class TopicsController < ApplicationController
 
   def index
-    # @topics = Topic.paginate(page: params[:page], per_page: 15).order('created_at DESC')
-    @topics = Topic.all.order('created_at DESC')
+    query = Topic.paginate(page: params[:page], per_page: 40)
+    if params[:tags].present?
+      query = query.joins( :tags ).where( :tags => {:name => params[:tags].split('+')} )
+    end
+    @topics = query.order('created_at DESC')
   end
 
   def show

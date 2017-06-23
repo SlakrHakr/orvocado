@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'topics#index'
+  get '/t/:tags', to: 'topics#index'
 
   resources :topics, only: [:index, :create, :new, :show]
   resources :user, only: [:create, :new]
