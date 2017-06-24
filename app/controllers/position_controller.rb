@@ -14,6 +14,9 @@ class PositionController < ApplicationController
 
     UserPosition.create(user_id: current_user.id, position_id: position_id)
 
+    topic.interaction_count += 1
+    topic.save
+
     render json: topic
   end
 
