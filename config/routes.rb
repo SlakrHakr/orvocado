@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'topics#index'
   get '/t/:tags', to: 'topics#index'
 
-  resources :topics, only: [:index, :create, :new, :show]
+  resources :topics, only: [:index, :create, :new, :show] do
+    resources :reasons, only: [:index]
+  end
   resources :user, only: [:create, :new]
 
   resources :position, only: [] do

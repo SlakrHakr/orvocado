@@ -110,20 +110,12 @@ $( document ).ready(function() {
      */
     function loadTopic(item, topicId){
       var container = $(item).closest('.topic-container');
-      $(container).load('/topics/' + topicId, function() {
-          // if ($('.reasons').length){
-          //     $('.reasons').removeClass('selected');
-          //     $('.reasons').removeClass('deselected');
-          // }
-          //
-          // if (left){
-          //     $('.reasons-left-side').addClass('selected');
-          //     $('.reasons-right-side').addClass('deselected');
-          // }else if (right){
-          //     $('.reasons-right-side').addClass('selected');
-          //     $('.reasons-left-side').addClass('deselected');
-          // }
-      });
+      $(container).load('/topics/' + topicId);
+
+      var reasonsContainer = $('.reasons-container');
+      if($(reasonsContainer).length){
+          $(reasonsContainer).load('/topics/' + topicId + '/reasons');
+      }
     }
 
     $( ".form-field" ).bind( "keyup", function() {

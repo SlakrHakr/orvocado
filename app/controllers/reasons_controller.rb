@@ -1,4 +1,13 @@
 class ReasonsController < ApplicationController
+  def index
+    topic_id = params[:topic_id].to_i
+    topic = Topic.find(topic_id)
+
+    if request.xhr?
+      render partial: '/topics/reasons/reasons_content', locals: { topic: topic }
+    end
+  end
+
   def create
     position_id = params[:position_id].to_i
     topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
@@ -11,5 +20,6 @@ class ReasonsController < ApplicationController
   end
 
   def destroy
+    # TODO
   end
 end

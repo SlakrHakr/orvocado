@@ -8,8 +8,10 @@ class PositionController < ApplicationController
 
     if (topic.position_one.id == position_id) && (topic.position_two.selected?)
       UserPosition.where(user_id: current_user.id, position_id: topic.position_two.id).destroy_all
+      Reason.where(user_id: current_user.id, position_id: topic.position_two.id).destroy_all
     elsif (topic.position_two.id == position_id) && (topic.position_one.selected?)
       UserPosition.where(user_id: current_user.id, position_id: topic.position_one.id).destroy_all
+      Reason.where(user_id: current_user.id, position_id: topic.position_one.id).destroy_all
     end
 
     UserPosition.create(user_id: current_user.id, position_id: position_id)
