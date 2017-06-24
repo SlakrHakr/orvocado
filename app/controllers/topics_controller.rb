@@ -29,7 +29,7 @@ class TopicsController < ApplicationController
 
     position_one = Position.create(description: params[:first_position])
     position_two = Position.create(description: params[:second_position])
-    topic = Topic.create(description: params[:topic], position_one: position_one.id, position_two: position_two.id)
+    topic = Topic.create(description: params[:topic], position_one: position_one.id, position_two: position_two.id, user_id: current_user.id)
 
     if params[:tags].present?
       params[:tags].each do |tag|

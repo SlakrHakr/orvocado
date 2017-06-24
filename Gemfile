@@ -33,6 +33,7 @@ gem 'will_paginate'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'devise'
+gem 'nokogiri'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

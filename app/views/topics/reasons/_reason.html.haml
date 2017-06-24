@@ -1,6 +1,11 @@
 -# reason
 
 .reason
-  = reason.score
-  = ' - '
-  = reason.description
+  .meta
+    =# reason.user.username
+
+  .reason-description
+    = reason.description
+
+  .links
+    %a{href: '#'} Agree

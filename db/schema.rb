@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170621011022) do
 
   create_table "reasons", force: :cascade do |t|
     t.integer  "position_id",             null: false
-    t.integer  "user_id",                 null: false
+    t.integer  "user_id"
     t.string   "description",             null: false
     t.bigint   "score",       default: 0, null: false
     t.datetime "created_at",              null: false
