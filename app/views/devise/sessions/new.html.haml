@@ -1,27 +1,22 @@
-%div.outline.center
-  %div.align-left.orvacado-placement
-    = image_tag('orvacado.png', height: 200)
-  %div.align-left
-    %h2 Log in
+%div.align-left.orvacado-placement
+  = image_tag('orvacado.png', height: '50%')
+%div.align-left.form-section
+  %h2
 
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 
+    .field{style: 'padding-bottom: 15px;'}
+      = f.email_field :email, placeholder: 'Email', autofocus: true, style: 'border: 0px; border-bottom: 1px solid lightgray; font-size: 20px;'
+
+    .field{style: 'padding-bottom: 15px;'}
+      = f.password_field :password, placeholder: 'Password', autocomplete: "off", style: 'border: 0px; border-bottom: 1px solid lightgray; font-size: 20px;'
+
+    - if devise_mapping.rememberable?
       .field
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true
+        = f.check_box :remember_me
+        = f.label :remember_me
 
-      .field
-        = f.label :password
-        %br/
-        = f.password_field :password, autocomplete: "off"
+    .actions
+      = f.submit "Log in", style: 'background-color: #587498; border: 0px; border-radius: 3px; margin-top: 10px; width: 100px; height: 40px; font-weight: bold; color: white;'
 
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-          = f.label :remember_me
-
-      .actions
-        = f.submit "Log in"
-
-    = render "devise/shared/links"
+  = render "devise/shared/links"
