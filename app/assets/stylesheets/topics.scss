@@ -34,9 +34,10 @@
   width: 15%;
   cursor: pointer;
   text-align: center;
-  line-height: 50px;
+  line-height: 62px;
   background-color: #F8F8F8;
   border: 1px solid #F8F8F8;
+  padding: 3px;
 }
 
 .topic > .topic-side.selected{
@@ -75,6 +76,10 @@
 .topic > .topic-side.deselected{
   color: lightgray;
   background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.topic > .topic-side.deselected > .accent{
   border: 1px solid transparent;
 }
 
@@ -234,4 +239,14 @@ li.select2-selection__choice{
 
 .topic-new > .topic-side{
   cursor: default;
+}
+
+.topic-side-left > .accent{
+  border-right: 3px solid rgba(88, 112, 88, 0.4);
+  height: 100%;
+}
+
+.topic-side-right > .accent{
+  border-left: 3px solid rgba(232, 104, 37, 0.4);
+  height: 100%;
 }
