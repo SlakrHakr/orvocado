@@ -7,6 +7,8 @@ class TopicsController < ApplicationController
       query = query.joins( :tags ).where( :tags => {:name => params[:tags].split('+')} )
     end
     @topics = query.order('interaction_count DESC').order('created_at DESC')
+
+    render json: @topics if File.extname(request.fullpath).present?
   end
 
   def show
@@ -16,6 +18,13 @@ class TopicsController < ApplicationController
 
     if request.xhr?
       render partial: '/topics/topic_content', locals: { topic: @topic }
+    else
+      topic = @topic.attributes
+      topic['position_one'] = @topic.position_one.attributes
+      topic['position_two'] = @topic.position_two.attributes
+      topic['position_one']['reasons'] = @topic.position_one.reasons
+      topic['position_two']['reasons'] = @topic.position_one.reasons
+      render json: topic if File.extname(request.fullpath).present?
     end
   end
 
