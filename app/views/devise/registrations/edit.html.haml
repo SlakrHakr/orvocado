@@ -1,55 +1,41 @@
-%div.outline.center
-  %div.align-left.orvacado-placement
-    = image_tag('orvacado.png', height: 200)
-  %div.align-left
-    %h2
-      Edit #{resource_name.to_s.humanize}
+%div.align-left.orvacado-placement
+  = image_tag('orvacado.png', height: '50%')
+%div.align-left.form-section
+  %h2
 
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      = devise_error_messages!
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
 
-      .field
-        = f.label :username
+    .field.pad-field
+      = f.text_field :username, autofocus: true, placeholder: 'Username', class: 'style-field'
+
+    .field.pad-field
+      = f.email_field :email, placeholder: 'Email', class: 'style-field'
+
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+
+    .field.pad-field
+      = f.password_field :password, autocomplete: "off", placeholder: 'New Password', class: 'style-field'
+      - if @minimum_password_length
         %br/
-        = f.text_field :username, autofocus: true
+        %em
+          = @minimum_password_length
+          characters minimum
 
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email
+    .field.pad-field
+      = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'New Password, again...', class: 'style-field'
 
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %div
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
+    %hr
 
-      .field
-        = f.label :password
-        %i (leave blank if you don't want to change it)
-        %br/
-        = f.password_field :password, autocomplete: "off"
-        - if @minimum_password_length
-          %br/
-          %em
-            = @minimum_password_length
-            characters minimum
+    .field.pad-field
+      = f.password_field :current_password, autocomplete: "off", placeholder: 'Current Password', class: 'style-field'
 
-      .field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
+    .actions
+      = f.submit "Update", class: 'style-submit'
 
-      .field
-        = f.label :current_password
-        %i (we need your current password to confirm your changes)
-        %br/
-        = f.password_field :current_password, autocomplete: "off"
+  %hr
 
-      .actions
-        = f.submit "Update"
-
-    %h3 Cancel my account
-
-    %p
-      Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-
-    = link_to "Back", :back
+  %p
+    Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'style-cancel'}

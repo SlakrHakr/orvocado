@@ -5,11 +5,11 @@
 
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 
-    .field{style: 'padding-bottom: 15px;'}
-      = f.email_field :email, placeholder: 'Email', autofocus: true, style: 'border: 0px; border-bottom: 1px solid lightgray; font-size: 20px;'
+    .field.pad-field
+      = f.email_field :email, placeholder: 'Email', autofocus: true, class: 'style-field'
 
-    .field{style: 'padding-bottom: 15px;'}
-      = f.password_field :password, placeholder: 'Password', autocomplete: "off", style: 'border: 0px; border-bottom: 1px solid lightgray; font-size: 20px;'
+    .field.pad-field
+      = f.password_field :password, placeholder: 'Password', autocomplete: "off", class: 'style-field'
 
     - if devise_mapping.rememberable?
       .field
@@ -17,6 +17,6 @@
         = f.label :remember_me
 
     .actions
-      = f.submit "Log in", style: 'background-color: #587498; border: 0px; border-radius: 3px; margin-top: 10px; width: 100px; height: 40px; font-weight: bold; color: white;'
+      = f.submit "Log in", class: 'style-submit'
 
   = render "devise/shared/links"

@@ -1,36 +1,24 @@
-%div.outline.center
-  %div.align-left.orvacado-placement
-    = image_tag('orvacado.png', height: 200)
-  %div.align-left
-    %h2 Sign up
+%div.align-left.orvacado-placement
+  = image_tag('orvacado.png', height: '50%')
+%div.align-left.form-section
+  %h2
 
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
 
-      .field
-        = f.label :username
-        %br/
-        = f.text_field :username, autofocus: true
+    .field.pad-field
+      = f.text_field :username, placeholder: 'Username', autofocus: true, class: 'style-field'
 
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email
+    .field.pad-field
+      = f.email_field :email, placeholder: 'Email', class: 'style-field'
 
-      .field
-        = f.label :password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
-        = f.password_field :password, autocomplete: "off"
+    .field.pad-field
+      = f.password_field :password, placeholder: 'Password', autocomplete: "off", class: 'style-field'
 
-      .field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off"
+    .field.pad-field
+      = f.password_field :password_confirmation, placeholder: 'Password, again...', autocomplete: "off", class: 'style-field'
 
-      .actions
-        = f.submit "Sign up"
+    .actions
+      = f.submit "Sign up", class: 'style-submit'
 
-    = render "devise/shared/links"
+  = render "devise/shared/links"

@@ -11,7 +11,7 @@
     - if alert.present?
       %p.alert= alert
 
-    - unless controller_path.include? 'devise'
+    - unless (controller_path.include? 'devise') || (controller_path == 'registrations')
       = render partial: '/layouts/banner'
 
     = yield
