@@ -13,8 +13,6 @@ class TopicsController < ApplicationController
 
   def show
   	@topic = Topic.find(params[:id].to_i)
-    @topic.interaction_count += 1
-    @topic.save
 
     if request.xhr?
       render partial: '/topics/topic_content', locals: { topic: @topic }
