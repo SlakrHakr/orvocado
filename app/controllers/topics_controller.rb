@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
       topic['position_one'] = @topic.position_one.attributes
       topic['position_two'] = @topic.position_two.attributes
       topic['position_one']['reasons'] = @topic.position_one.reasons
-      topic['position_two']['reasons'] = @topic.position_one.reasons
+      topic['position_two']['reasons'] = @topic.position_two.reasons
       render json: topic if File.extname(request.fullpath).present?
     end
   end

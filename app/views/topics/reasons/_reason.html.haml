@@ -2,7 +2,7 @@
 
 .reason
   .meta
-    =# reason.user.username
+    = reason.user.nil? ? nil : reason.user.username
 
   .reason-description
     = reason.description
