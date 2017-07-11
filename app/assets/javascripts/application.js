@@ -48,7 +48,17 @@ $( document ).ready(function() {
     $('.alert').delay(5000).slideUp();
   }
 
-  $('.tooltip').tooltipster({
-    theme: 'tooltipster-noir'
+  $('#topics > .topic-container > .topic > .topic-side.topic-side-left').tooltipster({
+    theme: 'tooltipster-noir',
+    side: 'left',
+    theme: ['tooltipster-light'],
+    animation: 'fall'
+  });
+
+  $('#topics > .topic-container > .topic > .topic-side.topic-side-right').tooltipster({
+    theme: 'tooltipster-noir',
+    side: 'right',
+    theme: ['tooltipster-light'],
+    animation: 'fall'
   });
 });

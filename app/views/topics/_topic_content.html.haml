@@ -2,7 +2,8 @@
 
 .topic{:class => ('selected' if (topic.position_one.selected? || topic.position_two.selected?))}
   - classes = "#{('selected' if topic.position_one.selected?)} #{('deselected' if topic.position_two.selected?)}"
-  %a.topic-section.topic-side.topic-side-left{'data-topic-id' => topic.id, 'data-position-id' => topic.position_one.id, :class => classes}
+  - reasons = topic.position_one.reasons
+  %a.topic-section.topic-side.topic-side-left{title: reasons.any? ? reasons[0].description : nil, 'data-topic-id' => topic.id, 'data-position-id' => topic.position_one.id, :class => classes}
     %div.accent
       = topic.position_one.description
 
@@ -14,7 +15,8 @@
         .topic-tag= tag.name
 
   - classes = "#{('selected' if topic.position_two.selected?)} #{('deselected' if topic.position_one.selected?)}"
-  %a.topic-section.topic-side.topic-side-right{'data-topic-id' => topic.id, 'data-position-id' => topic.position_two.id, :class => classes}
+  - reasons = topic.position_two.reasons
+  %a.topic-section.topic-side.topic-side-right{title: reasons.any? ? reasons[0].description : nil, 'data-topic-id' => topic.id, 'data-position-id' => topic.position_two.id, :class => classes}
     %div.accent
       = topic.position_two.description
 
