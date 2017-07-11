@@ -1,4 +1,5 @@
 class Reason < ApplicationRecord
+  belongs_to :position
   belongs_to :user, optional: true
   has_many :user_reason_agreement
 
