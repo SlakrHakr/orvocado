@@ -110,7 +110,19 @@ $( document ).ready(function() {
      */
     function loadTopic(item, topicId){
       var container = $(item).closest('.topic-container');
-      $(container).load('/topics/' + topicId);
+      $(container).load('/topics/' + topicId, function(){
+        $('#topics > .topic-container > .topic > .topic-side.topic-side-left').tooltipster({
+          side: ['left', 'right'],
+          theme: 'tooltipster-light',
+          animation: 'fall'
+        });
+
+        $('#topics > .topic-container > .topic > .topic-side.topic-side-right').tooltipster({
+          side: ['right', 'left'],
+          theme: 'tooltipster-light',
+          animation: 'fall'
+        });
+      });
 
       var reasonsContainer = $('.reasons-container');
       if($(reasonsContainer).length){

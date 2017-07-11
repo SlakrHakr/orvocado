@@ -49,14 +49,12 @@ $( document ).ready(function() {
   }
 
   $('#topics > .topic-container > .topic > .topic-side.topic-side-left').tooltipster({
-    theme: 'tooltipster-noir',
     side: ['left', 'right'],
     theme: 'tooltipster-light',
     animation: 'fall'
   });
 
   $('#topics > .topic-container > .topic > .topic-side.topic-side-right').tooltipster({
-    theme: 'tooltipster-noir',
     side: ['right', 'left'],
     theme: 'tooltipster-light',
     animation: 'fall'
