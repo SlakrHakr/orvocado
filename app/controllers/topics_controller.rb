@@ -8,7 +8,10 @@ class TopicsController < ApplicationController
     end
     @topics = query.order('interaction_count DESC').order('created_at DESC')
 
-    render json: @topics if File.extname(request.fullpath).present?
+    # render json: @topics if File.extname(request.fullpath).present?
+    # Reason.create!(position_id: 1, description: 'fdsgfgdfg')
+    # Topic.create(description: 'gdfgfg', position_one: 1, position_two: 2)
+    # render json: Reason.all
   end
 
   def show

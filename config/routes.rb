@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     get :almost
     post :select
     delete :deselect
-    resources :reasons, only: [:create, :destroy]
+    resources :reasons, only: [:create]
+  end
+
+  resources :reasons, only: [] do
+    post :agree
   end
 end

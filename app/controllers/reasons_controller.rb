@@ -19,7 +19,18 @@ class ReasonsController < ApplicationController
     render json: Reason.create(position_id: position_id, description: description, user_id: current_user.id)
   end
 
-  def destroy
-    # TODO
+  def agree
+    agree = ActiveModel::Type::Boolean.new.cast(params[:agree])
+    reason_id = params[:reason_id].to_i
+    reason = Reason.find(reason_id)
+
+    if agree
+      reason.score += 1
+    else
+      reason.score -= 1
+    end
+
+    reason.save
+    render json: reason
   end
 end

@@ -90,11 +90,11 @@ unique_links.each do |link|
         con_reasons = next_page.css('.newblue-con-quote-box').map{ |div| div.text.strip }
 
         pro_reasons.each do |reason|
-          Reason.create(position_id: result_position_one.id, description: reason)
+          Reason.create(position_id: result_position_one.id, description: reason.gsub(/\[[0-9]+\]/, ''))
         end
 
         con_reasons.each do |reason|
-          Reason.create(position_id: result_position_two.id, description: reason)
+          Reason.create(position_id: result_position_two.id, description: reason.gsub(/\[[0-9]+\]/, ''))
         end
       end
     rescue
@@ -102,3 +102,11 @@ unique_links.each do |link|
     end
   end
 end
+
+
+# the classic question
+result_position_one = Position.create(description: 'Avacado')
+result_position_two = Position.create(description: 'Orange')
+result_topic = Topic.create(description: 'Which is the superior fruit?', position_one: result_position_one.id, position_two: result_position_two.id)
+Tag.create(topic_id: result_topic.id, name: 'fruit')
+Tag.create(topic_id: result_topic.id, name: 'controversial')

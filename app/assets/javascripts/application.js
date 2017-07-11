@@ -18,6 +18,7 @@
 //= require position
 //= require topics
 //= require user
+//= require reasons
 
 $( document ).ready(function() {
   $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
