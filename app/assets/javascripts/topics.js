@@ -4,7 +4,7 @@ $(window).scroll(function(e){
    * @param  {[type]} $ [description]
    * @return {[type]}   [description]
    */
-  if(($(document).height() - $('body').height()) > 100){
+  // if(($(document).height() - $('body').height()) > 100){
     var $el = $('.topic-banner');
     var isPositionFixed = ($el.css('position') == 'fixed');
     if ($(this).scrollTop() > 44 && !isPositionFixed){
@@ -14,7 +14,7 @@ $(window).scroll(function(e){
     {
       $('.topic-banner').css({'position': 'static', 'top': '0px'});
     }
-  }
+  // }
 });
 
 $( document ).ready(function() {
