@@ -16,7 +16,10 @@ class ReasonsController < ApplicationController
     authenticate_user!
 
     description = params[:reason]
-    render json: Reason.create(position_id: position_id, description: description, user_id: current_user.id)
+    reason = Reason.create(position_id: position_id, description: description, user_id: current_user.id, score: 1)
+    UserReasonAgreement.create(user_id: current_user.id, reason_id: reason.id)
+
+    render json: reason
   end
 
   def agree
