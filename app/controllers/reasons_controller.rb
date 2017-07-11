@@ -26,8 +26,10 @@ class ReasonsController < ApplicationController
 
     if agree
       reason.score += 1
+      UserReasonAgreement.create(user_id: current_user.id, reason_id: reason_id)
     else
       reason.score -= 1
+      UserReasonAgreement.where(user_id: current_user.id, reason_id: reason_id).destroy_all
     end
 
     reason.save

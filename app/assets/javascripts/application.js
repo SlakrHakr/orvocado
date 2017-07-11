@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require select2.min
+//= require tooltipster.bundle.min
 //= require home
 //= require pagination
 //= require position
@@ -46,4 +47,8 @@ $( document ).ready(function() {
   if ($('.alert').length){
     $('.alert').delay(5000).slideUp();
   }
+
+  $('.tooltip').tooltipster({
+    theme: 'tooltipster-noir'
+  });
 });

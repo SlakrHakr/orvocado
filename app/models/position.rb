@@ -1,5 +1,5 @@
 class Position < ApplicationRecord
-  has_many :reasons
+  has_many :reasons, -> { order(score: :desc) }
   has_many :user_positions
 
   def selected?

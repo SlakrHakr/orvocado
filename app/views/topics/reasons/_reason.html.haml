@@ -8,4 +8,4 @@
     = reason.description
 
   .links
-    %a.agree-link{ 'data-reason-id' => reason.id } Agree
+    %a.agree-link{ 'data-reason-id' => reason.id }= reason.agree? ? 'Nevermind' : 'Agree'
