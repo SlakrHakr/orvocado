@@ -9,4 +9,4 @@
 
   - if reason.position.selected?
     .links
-      %a.agree-link{ 'data-reason-id' => reason.id }= reason.agree? ? 'Nevermind' : 'Agree'
+      %a.agree-link{ 'data-reason-id' => reason.id, style: 'color: gray;' }= reason.agree? ? 'Nevermind' : 'Agree'
