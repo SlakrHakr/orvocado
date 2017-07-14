@@ -61,32 +61,32 @@ $( document ).ready(function() {
     animation: 'fall'
   });
 
-  window.setInterval(function(){
-    var positions = $( "#topics > .topic-container > .topic > .topic-side" )
-    var position = $(positions[Math.floor(Math.random()*positions.length)])
-    if (!isElementInViewport(position)){
-      while(!isElementInViewport(position)){
-        var position = $(positions[Math.floor(Math.random()*positions.length)])
-      }
-    }
-    $(position).tooltipster('open');
-    setTimeout(function (){
-      $(position).tooltipster('close');
-    }, 10000);
-  }, 20000);
-
-  function isElementInViewport (el) {
-      if (typeof jQuery === "function" && el instanceof jQuery) {
-          el = el[0];
-      }
-
-      var rect = el.getBoundingClientRect();
-
-      return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-      );
-  }
+  // window.setInterval(function(){
+  //   var positions = $( "#topics > .topic-container > .topic > .topic-side" )
+  //   var position = $(positions[Math.floor(Math.random()*positions.length)])
+  //   if (!isElementInViewport(position)){
+  //     while(!isElementInViewport(position)){
+  //       var position = $(positions[Math.floor(Math.random()*positions.length)])
+  //     }
+  //   }
+  //   $(position).tooltipster('open');
+  //   setTimeout(function (){
+  //     $(position).tooltipster('close');
+  //   }, 10000);
+  // }, 20000);
+  //
+  // function isElementInViewport (el) {
+  //     if (typeof jQuery === "function" && el instanceof jQuery) {
+  //         el = el[0];
+  //     }
+  //
+  //     var rect = el.getBoundingClientRect();
+  //
+  //     return (
+  //         rect.top >= 0 &&
+  //         rect.left >= 0 &&
+  //         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+  //         rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+  //     );
+  // }
 });
