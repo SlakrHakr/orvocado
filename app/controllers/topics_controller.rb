@@ -7,6 +7,7 @@ class TopicsController < ApplicationController
       query = query.joins( :tags ).where( :tags => {:name => params[:tags].split('+')} )
     end
     @topics = query.order('interaction_count DESC').order('created_at DESC')
+    render json: @topics if File.extname(request.fullpath).present?
   end
 
   def show
