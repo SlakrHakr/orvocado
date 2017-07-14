@@ -53,7 +53,12 @@ $( document ).ready(function() {
     function semiSelectPosition(item){
       var positionId = $(item).data('position-id');
       var container = $(item).closest('.topic-container');
-      $(container).load('/position/' + positionId + '/almost');
+      $(container).load('/position/' + positionId + '/almost', function(){
+        $('.carousel').carousel({
+          interval: 15000,
+          pause: 'hover'
+        })
+      });
     }
 
     /**

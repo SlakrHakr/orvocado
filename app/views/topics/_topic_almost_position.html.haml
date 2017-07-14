@@ -21,6 +21,20 @@
 
   - classes = "#{('left-side' if topic.position_one.id == position.id)} #{'right-side' if topic.position_two.id == position.id}"
   .reason-area{ :class => classes }
+
+    - reasons = []
+    - if topic.position_one.id == position.id
+      - reasons = topic.position_one.reasons
+    - elsif topic.position_two.id == position.id
+      - reasons = topic.position_two.reasons
+
+    - if reasons.any?
+      .carousel.slide{"data-ride" => "carousel"}
+        .carousel-inner{:role => "listbox"}
+          - reasons.each_with_index do |reason, index|
+            .carousel-item{ :class => ('active' if index == 0) }
+              = reason.description
+
     %textarea{placeholder: 'Why?'}
 
     %input.submit{ type: 'submit', value: 'Submit', :class => classes }

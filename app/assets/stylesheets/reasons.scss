@@ -35,11 +35,11 @@
 }
 
 .reasons.reasons-right-side.selected{
-  background: rgba(232, 104, 37, 0.1);
+  background: #fdefe8;
 }
 
 .reasons.reasons-left-side.selected{
-  background: rgba(88, 112, 88, 0.1);
+  background: #eef0ee;
 }
 
 #topics > .topic-container > .topic > .reason-area{
@@ -53,17 +53,21 @@
 
 .topic-container > .topic > .reason-area{
   width: 100%;
-  height: 100px;
-  padding: 20px;
+  padding: 10px;
+  // padding-bottom: 0px;
+}
+
+#topics > .topic-container > .topic > .reason-area{
+  padding-bottom: 0px;
 }
 
 .reason-area > textarea{
   width: 100%;
-  height: 100%;
+  height: 80px;
 }
 
 .reason-area.left-side{
-  background: rgba(88, 112, 88, 0.1);
+  background: #eef0ee;
 }
 
 .reason-area.left-side > textarea{
@@ -71,7 +75,7 @@
 }
 
 .reason-area.right-side{
-  background: rgba(232, 104, 37, 0.1);
+  background: #fdefe8;
 }
 
 .reason-area.right-side > textarea{
@@ -79,13 +83,13 @@
 }
 
 #topics > .topic-container > .topic > .reason-area > .submit{
-  left: 697px;
+  left: 729px;
   float: none;
 }
 
 .topic-container > .topic > .reason-area > .submit{
   position: relative;
-  top: -29px;
+  top: -24px;
   left: -5px;
   float: right;
   opacity: .5;
@@ -98,13 +102,13 @@
 
 .reason-area > .submit.left-side{
   color: #587058;
-  background-color: rgba(88, 112, 88, 0.1);
+  background-color: #eef0ee;
   border: 1px solid #587058;
 }
 
 .reason-area > .submit.right-side{
   color: #E86825;
-  background-color: rgba(88, 112, 88, 0.1);
+  background-color: #eef0ee;
   border: 1px solid #E86825;
 }
 
@@ -124,4 +128,8 @@
 
 .agree-link{
   cursor: pointer;
+}
+
+.carousel {
+  padding: 15px;
 }

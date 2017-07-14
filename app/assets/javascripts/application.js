@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
 //= require select2.min
 //= require tooltipster.bundle.min
 //= require home
