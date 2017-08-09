@@ -59,15 +59,19 @@ $( document ).ready(function() {
   }
 
   $('#topics > .topic-container > .topic > .topic-side.topic-side-left').tooltipster({
-    side: ['left', 'right'],
+    side: ['left'],
     theme: 'tooltipster-light',
-    animation: 'fall'
+    animation: 'fall',
+    arrow: false,
+    viewportAware: false
   });
 
   $('#topics > .topic-container > .topic > .topic-side.topic-side-right').tooltipster({
-    side: ['right', 'left'],
+    side: ['right'],
     theme: 'tooltipster-light',
-    animation: 'fall'
+    animation: 'fall',
+    arrow: false,
+    viewportAware: false
   });
 
   // window.setInterval(function(){
