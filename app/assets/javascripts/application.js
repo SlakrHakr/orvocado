@@ -79,6 +79,11 @@ $( document ).ready(function() {
     viewportAware: false
   });
 
+  $('#create-topic').tooltipster({
+    side: ['left'],
+    theme: 'tooltipster-borderless'
+  });
+
   // window.setInterval(function(){
   //   var positions = $( "#topics > .topic-container > .topic > .topic-side" )
   //   var position = $(positions[Math.floor(Math.random()*positions.length)])
