@@ -42,30 +42,36 @@ body {
     border: solid #666 1px !important;
 }
 
-body > .notice {
-  background-color: #587498;
-  padding: 3px;
-  text-align: center;
-  color: #fff;
-  width: 50%;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  position: fixed;
-  margin-left: 25%;
-  z-index: 999;
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    text-align: center;
+    margin-bottom: 0px !important;
 }
 
-body > .alert {
-  background-color: #587498;
-  padding: 3px;
-  text-align: center;
-  color: #fff;
-  width: 50%;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  position: fixed;
-  margin-left: 25%;
-  z-index: 999;
+.alert-alert {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    text-align: center;
+    margin-bottom: 0px !important;
+}
+
+.alert-success {
+    color: #193819;
+    background-color: #dde8b0;
+    border-color: #d6e9c6;
+    text-align: center;
+    margin-bottom: 0px !important;
+}
+
+.alert-notice {
+    color: #587498;
+    background-color: #d7e9f2;
+    border-color: #bce8f1;
+    text-align: center;
+    margin-bottom: 0px !important;
 }
 
 .basic-link > a{

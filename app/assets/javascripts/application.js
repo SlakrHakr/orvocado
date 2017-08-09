@@ -50,12 +50,17 @@ $( document ).ready(function() {
     dir: "rtl"
   });
 
-  if ($('.notice').length){
-    $('.notice').delay(5000).slideUp();
+  if ($('.alert-notice').length){
+    $('.alert-notice').delay(5000).slideUp('slow');
   }
-
-  if ($('.alert').length){
-    $('.alert').delay(5000).slideUp();
+  if ($('.alert-error').length){
+    $('.alert-error').delay(5000).slideUp('slow');
+  }
+  if ($('.alert-alert').length){
+    $('.alert-alert').delay(5000).slideUp('slow');
+  }
+  if ($('.alert-success').length){
+    $('.alert-success').delay(5000).slideUp('slow');
   }
 
   $('#topics > .topic-container > .topic > .topic-side.topic-side-left').tooltipster({

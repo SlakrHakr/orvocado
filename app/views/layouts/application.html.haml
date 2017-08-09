@@ -6,10 +6,10 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    - if notice.present?
-      %p.notice= notice
-    - if alert.present?
-      %p.alert= alert
+    - flash.each do |key, value|
+      %div{:class => "alert alert-#{key}"}
+        %a.close{"data-dismiss" => "alert", :href => "#"} ×
+        = value
 
     - unless (controller_path.include? 'devise') || (controller_path == 'registrations')
       = render partial: '/layouts/banner'
