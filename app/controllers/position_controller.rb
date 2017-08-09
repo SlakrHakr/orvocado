@@ -30,6 +30,7 @@ class PositionController < ApplicationController
     authenticate_user!
 
     UserPosition.where(user_id: current_user.id, position_id: position_id).destroy_all
+    Reason.where(user_id: current_user.id, position_id: position_id).destroy_all
     topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
 
     render json: topic
