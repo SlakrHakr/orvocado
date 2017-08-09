@@ -41,4 +41,7 @@
     .alert
     %textarea{placeholder: 'Why?'}
 
-    %input.submit{ type: 'submit', value: 'Submit', :class => classes }
+    %button.submit{ type: 'submit', :class => classes }
+      %span
+        .align-left{style: 'padding-right: 3px;'} Submit
+        .loader.align-left{style: 'margin-top: 2px; display: none;'}

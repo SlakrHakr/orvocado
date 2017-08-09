@@ -5,7 +5,7 @@
   .align-right.basic-link
     - if user_signed_in?
       #user-actions.dropdown
-        .glyphicon.glyphicon-menu-down
+        .glyphicon.glyphicon-chevron-down
         = current_user.username
         .dropdown-content
           = link_to('Edit Profile', edit_user_registration_path)

@@ -88,3 +88,17 @@ body > .alert {
 .pagination {
     margin: 5px 0 10px;
 }
+
+.loader {
+  border: 1px solid #f3f3f3;
+  animation: spin 1s linear infinite;
+  border-top: 3px solid #587498;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -44,8 +44,16 @@ $( document ).ready(function() {
         if($.trim(reason) == ''){
           $(this).closest('.reason-area').find('.alert').addClass('alert-danger');
           $(this).closest('.reason-area').find('.alert').html('A reason for this position is required.');
+          return;
         }
 
+        $(this).prop("disabled", true);
+        $(this).addClass("disabled");
+        $(this).find('.loader').show();
+        if ($(this).css('float') != 'right'){
+          $(this).css('left', $(this).position().left - 24 + "px");
+        }
+        $(this).css('opacity', '1');
         addReasonAndSelectPosition(position, reason);
     });
 

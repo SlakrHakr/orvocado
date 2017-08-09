@@ -33,7 +33,7 @@ $( document ).ready(function() {
   var begin = 0;
   var end = 180;
   $( ".dropdown" ).click(function() {
-    $('.glyphicon-menu-down').rotate({
+    $('.glyphicon-chevron-down').rotate({
         angle: begin,
         animateTo: end,
         duration: 500
