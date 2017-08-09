@@ -42,7 +42,7 @@ body {
     border: solid #666 1px !important;
 }
 
-.notice{
+body > .notice {
   background-color: #587498;
   padding: 3px;
   text-align: center;
@@ -55,7 +55,7 @@ body {
   z-index: 999;
 }
 
-.alert{
+body > .alert {
   background-color: #587498;
   padding: 3px;
   text-align: center;

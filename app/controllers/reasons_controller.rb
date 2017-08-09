@@ -9,15 +9,26 @@ class ReasonsController < ApplicationController
   end
 
   def create
+    description = params[:reason]
+    raise 'A reason for this position is required.' if description.strip.blank?
+
     position_id = params[:position_id].to_i
     topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
 
     store_location_for(:user, topic_path(topic.id))
     authenticate_user!
 
-    description = params[:reason]
-    reason = Reason.create(position_id: position_id, description: description, user_id: current_user.id, score: 1)
-    UserReasonAgreement.create(user_id: current_user.id, reason_id: reason.id)
+    if description =~ /{"reasonId": [0-9]+}/
+      match_data = /{"reasonId": ([0-9]+)}/.match description
+      reason_id = match_data[1].to_i
+      reason = Reason.find(reason_id)
+      reason.score += 1
+      UserReasonAgreement.create(user_id: current_user.id, reason_id: reason_id)
+      reason.save
+    else
+      reason = Reason.create(position_id: position_id, description: description, user_id: current_user.id, score: 1)
+      UserReasonAgreement.create(user_id: current_user.id, reason_id: reason.id)
+    end
 
     render json: reason
   end

@@ -41,8 +41,12 @@ $( document ).ready(function() {
         var position = $(this).closest('.topic').find('.topic-side.semi-selected')
         var reason = $(this).closest('.reason-area').find('textarea').val();
 
-        addReason(position, reason);
-        selectPosition($(position));
+        if($.trim(reason) == ''){
+          $(this).closest('.reason-area').find('.alert').addClass('alert-danger');
+          $(this).closest('.reason-area').find('.alert').html('A reason for this position is required.');
+        }
+
+        addReasonAndSelectPosition(position, reason);
     });
 
     /**
@@ -66,7 +70,7 @@ $( document ).ready(function() {
      * @param {[type]} position [description]
      * @param {[type]} reason   [description]
      */
-    function addReason(position, reason){
+    function addReasonAndSelectPosition(position, reason){
       $.ajax({
         contentType: 'application/json',
         data: JSON.stringify(
@@ -74,7 +78,10 @@ $( document ).ready(function() {
           ),
         dataType: 'json',
         type: 'POST',
-        url: '/position/' + $(position).data('position-id') + '/reasons'
+        url: '/position/' + $(position).data('position-id') + '/reasons',
+        success: function (html) {
+          selectPosition($(position));
+        }
       });
     }
 
@@ -172,6 +179,19 @@ $( document ).ready(function() {
 
         $(this).closest('.topic-new').find('.reason-area').find('textarea').val('');
         $(this).closest('.topic-new').find('.reason-area').show();
+
+        if ($(this).closest('.reason-area').find('textarea').is(":visible")){
+          //selecting
+          $($(this).closest('.carousel')).carousel('pause');
+          $($(this).closest('.reason-area').find('.submit')).css('margin-bottom', '-20px');
+          $(this).closest('.reason-area').find('textarea').val('{"reasonId": ' + $(this).data('reason-id') + '}');
+        }else{
+          //deselecting
+          $($(this).closest('.carousel')).carousel('cycle');
+          $($(this).closest('.reason-area').find('.submit')).css('margin-bottom', '0px');
+          $(this).closest('.reason-area').find('textarea').val('');
+        }
+        $(this).closest('.reason-area').find('textarea').toggle();
     });
 
 });

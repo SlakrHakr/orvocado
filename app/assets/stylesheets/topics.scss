@@ -195,16 +195,19 @@ li.select2-selection__choice{
   border: 0px !important;
 }
 
+.topic-section > .select-position{
+  position: relative;
+  bottom: 32px;
+  right: 2px;
+  float: right;
+}
+
 .select-position{
   padding: 5px;
   width: 30px;
   height: 30px;
   color: lightgray;
   border-radius: 3px;
-  position: relative;
-  bottom: 32px;
-  right: 2px;
-  float: right;
   cursor: pointer;
   font-size: 17px;
 }

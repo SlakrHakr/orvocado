@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require jQueryRotate
 //= require select2.min
 //= require tooltipster.bundle.min
 //= require home
@@ -29,9 +30,17 @@ $( document ).ready(function() {
     }
   });
 
+  var begin = 0;
+  var end = 180;
   $( ".dropdown" ).click(function() {
-    $(this).find(".glyphicon").toggleClass('glyphicon-menu-down');
-    $(this).find(".glyphicon").toggleClass('glyphicon-menu-up');
+    $('.glyphicon-menu-down').rotate({
+        angle: begin,
+        animateTo: end,
+        duration: 500
+      });
+    begin += 180
+    end += 180
+
     $(this).find(".dropdown-content").toggleClass('show');
   });
 
