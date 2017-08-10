@@ -46,7 +46,8 @@ class TopicsController < ApplicationController
     if (params[:selected_position] == 'left') || (params[:selected_position] == 'right')
       position = params[:selected_position] == 'left' ? position_one : position_two
       UserPosition.create(user_id: current_user.id, position_id: position.id)
-      Reason.create(position_id: position.id, description: params[:reason], user_id: current_user.id)
+      reason = Reason.create(position_id: position.id, description: params[:reason], user_id: current_user.id, score: 1)
+      UserReasonAgreement.create(user_id: current_user.id, reason_id: reason.id)
     else
       raise "Picking a side is required for topic submission."
     end
