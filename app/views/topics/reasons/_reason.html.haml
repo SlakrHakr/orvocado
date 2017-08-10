@@ -5,8 +5,7 @@
     = reason.user.nil? ? nil : reason.user.username
 
   .reason-description
-    = reason.description
-    =# reason.description.gsub("\n", '<br/>').gsub(' ', '&nbsp;').html_safe
+    = link_urls(reason.description.gsub("\n", '<br/>')).html_safe
 
   - if reason.position.selected?
     .links
