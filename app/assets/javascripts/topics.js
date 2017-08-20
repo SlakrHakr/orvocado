@@ -169,7 +169,7 @@ $( document ).ready(function() {
 
     $('body').on('click', '.select-position', function(){
         $(this).closest('.topic-new').find('.select-position').removeClass('selected');
-        $(this).addClass('selected');
+        $(this).toggleClass('selected');
 
         if ($(this).hasClass('left-side')){
           $(this).closest('.topic-new').find('.topic-side-right').removeClass('topic-side-right');
