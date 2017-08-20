@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 Position.create(description: 'Yes')
 Position.create(description: 'No')
 Topic.create(description: 'Should More Gun Control Laws Be Enacted?', position_one: 1, position_two: 2)
@@ -1069,14 +1061,26 @@ Reason.create(position_id: 72, description: 'Social Policy: Clinton neglected to
 Reason.create(position_id: 72, description: 'Taxes: The Omnibus Budget Reconciliation Act of 1993 increased the gasoline tax by 4.3 cents per gallon, which directly impacted the middle class.  The 1993 tax hikes cannot be credited with the economic boom of the 1990s: it was after the Republican Congress passed tax cuts in 1997 that the economy really became stronger and the budget was balanced.  Clinton designed his tax plans to place an unfair burden on the wealthy, punishing the most productive members of the US economy while cutting taxes for the least productive. ')
 Reason.create(position_id: 72, description: 'Other: Clinton failed to deal with the threat of Osama bin Laden, whose terrorist acts escalated and culminated in the Sep. 11, 2001 attacks that killed 2,973 people. Clinton was too distracted by scandals such as the threat of impeachment to take action against Al Qaeda.  A former CIA station chief in Pakistan said Clinton ordered the CIA to capture bin Laden alive, which resulted in a missed opportunity to kill him at an al-Qaida training camp in 2000. ')
 
+Position.create(description: 'Avacado')
+Position.create(description: 'Orange')
+Topic.create(description: 'Which is the superior fruit?', position_one: 73, position_two: 74)
+Tag.create(topic_id: 37, name: 'fruit')
+Tag.create(topic_id: 37, name: 'controversial')
+Reason.create(position_id: 73, description: 'Avocados are a naturally nutrient-dense food and contain nearly 20 vitamins and minerals.')
+Reason.create(position_id: 73, description: 'Because I can use avocados in a lot of tasty dishes such as guacamole, salad, tacos, sandwiches, burgers, etc.')
+Reason.create(position_id: 73, description: 'It\'s green, nuff said.')
+Reason.create(position_id: 74, description: 'One orange offers over 170 different phytonutrients and more than 60 different flavonoids.')
+Reason.create(position_id: 74, description: 'It\'s orange, nuff said.')
 
-# the classic question
-result_position_one = Position.create(description: 'Avacado')
-result_position_two = Position.create(description: 'Orange')
-result_topic = Topic.create(description: 'Which is the superior fruit?', position_one: result_position_one.id, position_two: result_position_two.id)
-Tag.create(topic_id: result_topic.id, name: 'fruit')
-Tag.create(topic_id: result_topic.id, name: 'controversial')
-Reason.create(position_id: result_position_one.id, description: 'Avocados are a naturally nutrient-dense food and contain nearly 20 vitamins and minerals.')
-Reason.create(position_id: result_position_one.id, description: 'It\'s green, nuff said.')
-Reason.create(position_id: result_position_two.id, description: 'One orange offers over 170 different phytonutrients and more than 60 different flavonoids.')
-Reason.create(position_id: result_position_two.id, description: 'It\'s orange, nuff said.')
+Position.create(description: 'Cat.')
+Position.create(description: 'Dog')
+Topic.create(description: 'Which is a better pet: cats or dogs?', position_one: 75, position_two: 76)
+Tag.create(topic_id: 38, name: 'controversial')
+Reason.create(position_id: 76, description: 'Dogs really are man\'s best friend.')
+
+Position.create(description: 'dsad')
+Position.create(description: 'fsfsd')
+Topic.create(description: 'testing', position_one: 77, position_two: 78)
+Tag.create(topic_id: 39, name: 'dsad')
+Reason.create(position_id: 77, description: 'fsfsd')
+
