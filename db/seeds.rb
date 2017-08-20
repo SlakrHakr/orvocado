@@ -430,7 +430,7 @@ Reason.create(position_id: 26, description: 'College stress can lead to health p
 
 Position.create(description: 'Yes')
 Position.create(description: 'No')
-Topic.create(description: 'Is the D.A.R.E. program good for America's kids (K-12)?', position_one: 27, position_two: 28)
+Topic.create(description: 'Is the D.A.R.E. program good for America\'s kids (K-12)?', position_one: 27, position_two: 28)
 Tag.create(topic_id: 14, name: 'america')
 Reason.create(position_id: 27, description: 'testing
   dasdsaf
@@ -913,7 +913,7 @@ Reason.create(position_id: 60, description: 'A playoff system would entail each 
 
 Position.create(description: 'Yes')
 Position.create(description: 'No')
-Topic.create(description: 'Is it appropriate to build a Muslim community center (aka the 'Ground Zero Mosque') near the World Trade Center Site?', position_one: 61, position_two: 62)
+Topic.create(description: 'Is it appropriate to build a Muslim community center (aka the \'Ground Zero Mosque\') near the World Trade Center Site?', position_one: 61, position_two: 62)
 Reason.create(position_id: 61, description: 'The "Ground Zero Mosque" will be an asset to the city. According to plans released by the Cordoba Initiative - the group behind the project - what is planned is a community center with a library, a gym, a swimming pool, a basketball court, a 500-seat auditorium, a restaurant, a 9/11 memorial, child care facilities, and a culinary school. ')
 Reason.create(position_id: 61, description: 'The Muslim community center is a major economic investment that will pump over $100 million in infrastructre into lower Manhattan and will create as many as 150 full-time and 500 part-time jobs in an area that desperately needs it. ')
 Reason.create(position_id: 61, description: 'Contrary to what many believe, the \'Ground Zero Mosque\' is not a mosque. A mosque is a Muslim holy place in which only worship can be conducted.  The community center is 16-stories high with a 2-story prayer space that is, according to its builders, "open to everyone." ')

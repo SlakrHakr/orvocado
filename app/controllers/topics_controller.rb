@@ -2,42 +2,12 @@ class TopicsController < ApplicationController
   require 'open-uri'
 
   def index
-    # query = Topic.paginate(page: params[:page], per_page: 40)
-    # if params[:tags].present?
-    #   query = query.joins( :tags ).where( :tags => {:name => params[:tags].split('+')} )
-    # end
-    # @topics = query.order('interaction_count DESC').order('created_at DESC')
-    # render json: @topics if File.extname(request.fullpath).present?
-
-    # puts "Position.create(description: 'Yes')"
-    # puts "Position.create(description: 'No')"
-    # puts "Topic.create(description: #{topic_description}, position_one: #{result_position_one.id}, position_two: #{result_position_two.id})"
-    # puts "Tag.create(topic_id: #{result_topic.id}, name: #{tag})"
-    # puts "Reason.create(position_id: #{result_position_one.id}, description: #{reason.gsub(/\[[0-9]+\]/, '')})"
-    # puts "Reason.create(position_id: #{result_position_two.id}, description: #{reason.gsub(/\[[0-9]+\]/, '')})"
-
-    seeds = ''
-    Topic.all.each do |topic|
-      seeds += "Position.create(description: '#{topic.position_one.description}')\n"
-      seeds += "Position.create(description: '#{topic.position_two.description}')\n"
-      seeds += "Topic.create(description: '#{topic.description}', position_one: #{topic.position_one.id}, position_two: #{topic.position_two.id})\n"
-      topic.tags.each do |tag|
-        seeds += "Tag.create(topic_id: #{topic.id}, name: '#{tag.name}')\n"
-      end
-      topic.position_one.reasons.each do |reason|
-        seeds += "Reason.create(position_id: #{topic.position_one.id}, description: '#{reason.description.gsub('\'', '\\\\\'')}')\n"
-      end
-      topic.position_two.reasons.each do |reason|
-        seeds += "Reason.create(position_id: #{topic.position_two.id}, description: '#{reason.description.gsub('\'', '\\\\\'')}')\n"
-      end
-      seeds += "\n"
+    query = Topic.paginate(page: params[:page], per_page: 40)
+    if params[:tags].present?
+      query = query.joins( :tags ).where( :tags => {:name => params[:tags].split('+')} )
     end
-
-    File.open('awesome', 'w') { |file| file.write(seeds) }
-
-
-    render text: seeds
-
+    @topics = query.order('interaction_count DESC').order('created_at DESC')
+    render json: @topics if File.extname(request.fullpath).present?
   end
 
   def show
