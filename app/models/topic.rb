@@ -8,7 +8,7 @@ class Topic < ApplicationRecord
 
   def position_one_perc
     sum = self.position_one.selected_count + self.position_two.selected_count
-    sum > 0 ? self.position_one.selected_count / (sum) * 100 : 0
+    sum > 0 ? self.position_one.selected_count.to_f / (sum.to_f) * 100 : 0
   end
 
   def position_two
@@ -17,6 +17,6 @@ class Topic < ApplicationRecord
 
   def position_two_perc
     sum = self.position_one.selected_count + self.position_two.selected_count
-    sum > 0 ? self.position_two.selected_count / (sum) * 100 : sum
+    sum > 0 ? self.position_two.selected_count.to_f / (sum.to_f) * 100 : sum
   end
 end
