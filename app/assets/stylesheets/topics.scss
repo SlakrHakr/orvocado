@@ -27,6 +27,14 @@
   width: 150px;
 }
 
+.topic > .topic-side.selected{
+  padding: 5px;
+}
+
+.topic > .topic-side.deselected{
+  padding: 5px;
+}
+
 .topic > .topic-side{
   width: 15%;
   cursor: pointer;

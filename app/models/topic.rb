@@ -6,7 +6,17 @@ class Topic < ApplicationRecord
   	Position.find(self.attributes['position_one'])
   end
 
+  def position_one_perc
+    sum = self.position_one.selected_count + self.position_two.selected_count
+    sum > 0 ? self.position_one.selected_count / (sum) * 100 : 0
+  end
+
   def position_two
   	Position.find(self.attributes['position_two'])
+  end
+
+  def position_two_perc
+    sum = self.position_one.selected_count + self.position_two.selected_count
+    sum > 0 ? self.position_two.selected_count / (sum) * 100 : sum
   end
 end
