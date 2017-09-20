@@ -4,11 +4,18 @@
 
   .align-right.basic-link
     - if user_signed_in?
-      #user-actions.dropdown
-        .glyphicon.glyphicon-chevron-down
-        = current_user.username
-        .dropdown-content
-          = link_to('Edit Profile', edit_user_registration_path)
-          = link_to('Logout', destroy_user_session_path, method: :delete)
+      %span.banner-link
+        = link_to('Created Topics', user_created_path(user_id: current_user.id))
+      |
+      %span.banner-link
+        = link_to('Past Positions', user_positions_path(user_id: current_user.id))
+      |
+      %span.banner-link
+        #user-actions.dropdown
+          = current_user.username
+          .glyphicon.glyphicon-chevron-down
+          .dropdown-content
+            = link_to('Edit Profile', edit_user_registration_path)
+            = link_to('Logout', destroy_user_session_path, method: :delete)
     - else
       = link_to('Login', new_user_session_path)
