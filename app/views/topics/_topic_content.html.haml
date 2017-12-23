@@ -14,7 +14,7 @@
     = topic.description
     .topic-tags
       - topic.tags.each do |tag|
-        .topic-tag= tag.name
+        .topic-tag{href: tagged_topics_path(tags: tag.name)}= tag.name
 
   - classes = "#{('selected' if topic.position_two.selected?)} #{('deselected' if topic.position_one.selected?)}"
   - reasons = topic.position_two.reasons

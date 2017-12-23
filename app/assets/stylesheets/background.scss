@@ -4,47 +4,47 @@
   width: 50%;
   left: 0;
   top: 0;
-  background-color: #eef0ee;
+  background-color: #d0d6d0;
   z-index: -1;
 }
 
-.lefty-biz-leaf {
-  height: 105px;
-  width: 18%;
-  background-color: #d0d6d0;
-  position: fixed;
-  top: -30px;
-  left: 0;
-  border-radius: 0 100% / 0px 140px;
-  transform: rotate(-25deg);
-  z-index: -1;
-}
-
-.lefty-biz-bottom {
-  height: 80vh;
-  position: fixed;
-  width: 50%;
-  left: 0;
-  top: 20vh;
-  background-color: #d0d6d0;
-  z-index: -1;
-  border-bottom-left-radius: 40%;
-  border-top-left-radius: 70%;
-}
-
-.lefty-biz-top {
-  height: 60vh;
-  position: fixed;
-  width: 50%;
-  left: 12%;
-  top: 0;
-  background-color: #d0d6d0;
-  z-index: -1;
-  border-top-left-radius: 30%;
-  transform: rotate(10deg);
-  -ms-transform: rotate(10deg); /* IE 9 */
-  -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
-}
+// .lefty-biz-leaf {
+//   height: 105px;
+//   width: 18%;
+//   background-color: #d0d6d0;
+//   position: fixed;
+//   top: -30px;
+//   left: 0;
+//   border-radius: 0 100% / 0px 140px;
+//   transform: rotate(-25deg);
+//   z-index: -1;
+// }
+//
+// .lefty-biz-bottom {
+//   height: 80vh;
+//   position: fixed;
+//   width: 50%;
+//   left: 0;
+//   top: 20vh;
+//   background-color: #d0d6d0;
+//   z-index: -1;
+//   border-bottom-left-radius: 40%;
+//   border-top-left-radius: 70%;
+// }
+//
+// .lefty-biz-top {
+//   height: 60vh;
+//   position: fixed;
+//   width: 50%;
+//   left: 12%;
+//   top: 0;
+//   background-color: #d0d6d0;
+//   z-index: -1;
+//   border-top-left-radius: 30%;
+//   transform: rotate(10deg);
+//   -ms-transform: rotate(10deg); /* IE 9 */
+//   -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+// }
 
 .righty {
   height: 100vh;
@@ -52,18 +52,18 @@
   width: 50%;
   right: 0;
   top: 0;
-  background-color: #fdf0e9;
+  background-color: #ecd5c5;
   z-index: -1;
 }
 
-.righty-biz {
-  height: 100vh;
-  position: fixed;
-  width: 50%;
-  right: 0;
-  top: 0;
-  background-color: #ecd5c5;
-  z-index: -1;
-  border-bottom-right-radius: 80%;
-  border-top-right-radius: 90%;
-}
+// .righty-biz {
+//   height: 100vh;
+//   position: fixed;
+//   width: 50%;
+//   right: 0;
+//   top: 0;
+//   background-color: #ecd5c5;
+//   z-index: -1;
+//   border-bottom-right-radius: 80%;
+//   border-top-right-radius: 90%;
+// }
