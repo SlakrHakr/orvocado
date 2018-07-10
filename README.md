@@ -1,24 +1,9 @@
-# README
+# Orvocado
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application to generate topics, discuss, and bring people to your way of thinking. (and maybe rethink some of your own :) )
 
-Things you may want to cover:
+## Development
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rake db:migrate
+rake db:seed
+rails s
