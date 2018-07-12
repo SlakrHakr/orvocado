@@ -51,7 +51,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'capybara'
   gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'selenium-webdriver'
