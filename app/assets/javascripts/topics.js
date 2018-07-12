@@ -4,18 +4,40 @@ $(window).scroll(function(e){
    * @param  {[type]} $ [description]
    * @return {[type]}   [description]
    */
-  // if(($(document).height() - $('body').height()) > 100){
-    var $el = $('.topic-banner');
-    var isPositionFixed = ($el.css('position') == 'fixed');
-    if ($(this).scrollTop() > 44 && !isPositionFixed){
-      $('.topic-banner').css({'position': 'fixed', 'top': '0px'});
-    }
-    if ($(this).scrollTop() < 44 && isPositionFixed)
-    {
-      $('.topic-banner').css({'position': 'static', 'top': '0px'});
-    }
-  // }
+  var $el = $('.topic-banner');
+  var isPositionFixed = ($el.css('position') == 'fixed');
+  if ($(this).scrollTop() > 44 && !isPositionFixed){
+    $('.topic-banner').css({'position': 'fixed', 'top': '0px'});
+  }
+  if ($(this).scrollTop() < 44 && isPositionFixed)
+  {
+    $('.topic-banner').css({'position': 'static', 'top': '0px'});
+  }
 });
+
+function initialize_tooltips() {
+  $('#topics > .topic-container > .topic > .topic-side.topic-side-left').tooltipster({
+    side: ['left', 'right'],
+    theme: 'tooltipster-light',
+    animation: 'fall',
+    arrow: false,
+    viewportAware: false,
+    minWidth: 300,
+    maxWidth: 300,
+    delay: [800, 300]
+  });
+
+  $('#topics > .topic-container > .topic > .topic-side.topic-side-right').tooltipster({
+    side: ['right', 'left'],
+    theme: 'tooltipster-light',
+    animation: 'fall',
+    arrow: false,
+    viewportAware: false,
+    minWidth: 300,
+    maxWidth: 300,
+    delay: [800, 300]
+  });
+}
 
 $( document ).ready(function() {
     /**
@@ -131,17 +153,7 @@ $( document ).ready(function() {
     function loadTopic(item, topicId){
       var container = $(item).closest('.topic-container');
       $(container).load('/topics/' + topicId, function(){
-        $('#topics > .topic-container > .topic > .topic-side.topic-side-left').tooltipster({
-          side: ['left', 'right'],
-          theme: 'tooltipster-light',
-          animation: 'fall'
-        });
-
-        $('#topics > .topic-container > .topic > .topic-side.topic-side-right').tooltipster({
-          side: ['right', 'left'],
-          theme: 'tooltipster-light',
-          animation: 'fall'
-        });
+        initialize_tooltips();
       });
 
       var reasonsContainer = $('.reasons-container');
