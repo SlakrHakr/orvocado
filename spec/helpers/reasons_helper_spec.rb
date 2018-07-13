@@ -11,5 +11,23 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ReasonsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'link_urls' do
+    context 'when url begins with https' do
+      it 'converts urls to proper links to display' do
+        input = 'https://www.google.com/'
+        output = "<a href='#{input}'>#{input}</a> <br/>"
+
+        expect(helper.link_urls(input)).to eq(output)
+      end
+    end
+
+    context 'when url begins with http' do
+      it 'converts urls to proper links to display' do
+        input = 'http://www.google.com/'
+        output = "<a href='#{input}'>#{input}</a> <br/>"
+
+        expect(helper.link_urls(input)).to eq(output)
+      end
+    end
+  end
 end
