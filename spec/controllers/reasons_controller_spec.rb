@@ -1,18 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe ReasonsController, type: :controller do
-  let(:user) { create(:user) }
-  let(:position_one) { create(:position, id: 1) }
-  let(:position_two) { create(:position, id: 2) }
-  let(:topic) { create(:topic, position_one: position_one.id, position_two: position_two.id) }
+  let!(:user) { create(:user) }
+  let!(:position_one) { create(:position, id: 1) }
+  let!(:position_two) { create(:position, id: 2) }
+  let!(:topic) { create(:topic, position_one: position_one.id, position_two: position_two.id) }
   let(:topics) { [topic] }
-  let(:reason) { create(:reason) }
-
-  before do
-    allow(Topic).to receive(:find).and_return(topic)
-    allow(Topic).to receive(:where).and_return(topics)
-    allow(Reason).to receive(:find).and_return(reason)
-  end
+  let!(:reason) { create(:reason) }
 
   describe "GET #index" do
     it "returns http success" do

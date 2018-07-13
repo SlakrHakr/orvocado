@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe TopicsController, type: :controller do
-  let(:user) { create(:user) }
-  let(:position_one) { create(:position, id: 1) }
-  let(:position_two) { create(:position, id: 2) }
-  let(:topic) { create(:topic, position_one: position_one.id, position_two: position_two.id) }
-
-  before do
-    allow(Topic).to receive(:find).with(topic.id).and_return(topic)
-  end
+  let!(:user) { create(:user) }
+  let!(:position_one) { create(:position, id: 1) }
+  let!(:position_two) { create(:position, id: 2) }
+  let!(:topic) { create(:topic, position_one: position_one.id, position_two: position_two.id) }
 
   describe "GET #index" do
     it "returns http success" do

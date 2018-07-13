@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
 
   context 'when user is logged in' do
     before do
