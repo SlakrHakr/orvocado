@@ -3,20 +3,19 @@ class ReasonsController < ApplicationController
     topic_id = params[:topic_id].to_i
     topic = Topic.find(topic_id)
 
-    if request.xhr?
-      render partial: '/topics/reasons/reasons_content', locals: { topic: topic }
-    end
+    render partial: '/topics/reasons/reasons_content', locals: { topic: topic }
   end
 
   def create
+    authenticate_user!
+
     description = params[:reason]
-    raise 'A reason for this position is required.' if description.strip.blank?
+    render plain: 'A reason for this position is required.', status: :bad_request and return unless description.present?
 
     position_id = params[:position_id].to_i
     topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
 
     store_location_for(:user, topic_path(topic.id))
-    authenticate_user!
 
     if description =~ /{"reasonId": [0-9]+}/
       match_data = /{"reasonId": ([0-9]+)}/.match description
@@ -34,6 +33,8 @@ class ReasonsController < ApplicationController
   end
 
   def agree
+    authenticate_user!
+
     agree = ActiveModel::Type::Boolean.new.cast(params[:agree])
     reason_id = params[:reason_id].to_i
     reason = Reason.find(reason_id)

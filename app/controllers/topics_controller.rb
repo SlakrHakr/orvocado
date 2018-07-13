@@ -51,7 +51,7 @@ class TopicsController < ApplicationController
       reason = Reason.create(position_id: position.id, description: params[:reason], user_id: current_user.id, score: 1)
       UserReasonAgreement.create(user_id: current_user.id, reason_id: reason.id)
     else
-      raise "Picking a side is required for topic submission."
+      render plain: 'Picking a side is required for topic submission.', status: :bad_request and return
     end
 
     redirect_to topic_path(topic.id)

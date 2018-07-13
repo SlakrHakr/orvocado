@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :topics, only: [:index, :create, :new, :show] do
     resources :reasons, only: [:index]
   end
+  
   resources :users, only: [] do
     get :created
     get :positions, to: 'users#positions_taken'
