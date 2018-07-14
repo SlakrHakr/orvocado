@@ -50,12 +50,14 @@ group :development, :test do
   gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'wraith'
   gem 'factory_bot_rails'
+  gem 'simplecov'
 end
 
 group :development do

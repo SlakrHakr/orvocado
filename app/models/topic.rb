@@ -1,8 +1,13 @@
 class Topic < ApplicationRecord
+  validates_presence_of :description
+  validates_presence_of :position_one
+  validates_presence_of :position_two
+
   self.per_page = 40
   has_many :tags
 
   def position_one
+    (self.errors.add(:base, :position_one) and return nil) if self.attributes['position_one'].blank?
   	Position.find(self.attributes['position_one'])
   end
 
@@ -12,6 +17,7 @@ class Topic < ApplicationRecord
   end
 
   def position_two
+    (self.errors.add(:base, :position_two) and return nil) if self.attributes['position_two'].blank?
   	Position.find(self.attributes['position_two'])
   end
 

@@ -1,4 +1,6 @@
 class Position < ApplicationRecord
+  validates_presence_of :description
+
   has_many :reasons, -> { order(score: :desc) }
   has_many :user_positions
 

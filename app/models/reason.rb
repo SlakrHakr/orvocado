@@ -1,4 +1,7 @@
 class Reason < ApplicationRecord
+  validates_presence_of :position_id
+  validates_presence_of :description
+
   belongs_to :position
   belongs_to :user, optional: true
   has_many :user_reason_agreement
