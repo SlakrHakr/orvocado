@@ -7,15 +7,14 @@ class ReasonsController < ApplicationController
   end
 
   def create
-    authenticate_user!
-
-    description = params[:reason]
-    render plain: 'A reason for this position is required.', status: :bad_request and return unless description.present?
-
     position_id = params[:position_id].to_i
     topic = Topic.where("position_one = ? or position_two = ?", position_id, position_id).first
 
     store_location_for(:user, topic_path(topic.id))
+    authenticate_user!
+
+    description = params[:reason]
+    render plain: 'A reason for this position is required.', status: :bad_request and return unless description.present?
 
     if description =~ /{"reasonId": [0-9]+}/
       match_data = /{"reasonId": ([0-9]+)}/.match description
