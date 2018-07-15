@@ -23,3 +23,4 @@
 /spec/examples.txt
 /coverage
 .DS_Store
+/spec/visual_regression/shots

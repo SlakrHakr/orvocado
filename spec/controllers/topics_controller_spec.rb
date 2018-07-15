@@ -36,11 +36,13 @@ RSpec.describe TopicsController, type: :controller do
     context 'when user selected a position' do
       describe "POST #create" do
         it "returns http found" do
-          post :create, first_position: 'heres-the-first-position',
-                        second_position: 'heres-the-second-position',
-                        topic: 'heres-a-topic',
-                        selected_position: 'left',
-                        reason: 'heres-a-reason'
+          post :create, params: {
+                                  first_position: 'heres-the-first-position',
+                                  second_position: 'heres-the-second-position',
+                                  topic: 'heres-a-topic',
+                                  selected_position: 'left',
+                                  reason: 'heres-a-reason'
+                                }
           expect(response).to have_http_status(:found)
         end
       end
@@ -49,9 +51,11 @@ RSpec.describe TopicsController, type: :controller do
     context 'when user did not select a position' do
       describe "POST #create" do
         it "returns http bad_request" do
-          post :create, first_position: 'heres-the-first-position',
-                        second_position: 'heres-the-second-position',
-                        topic: 'heres-a-topic'
+          post :create, params: {
+                                  first_position: 'heres-the-first-position',
+                                  second_position: 'heres-the-second-position',
+                                  topic: 'heres-a-topic'
+                                }
           expect(response).to have_http_status(:bad_request)
         end
       end

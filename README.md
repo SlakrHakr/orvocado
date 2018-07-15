@@ -9,3 +9,15 @@ rake db:migrate
 rake db:seed
 rails s
 ```
+
+### Testing
+
+```
+rake db:migrate RAILS_ENV=test
+
+brew install imagemagick
+brew install phantomjs
+brew install casperjs
+
+rspec spec
+```
